@@ -153,7 +153,7 @@
         .sidebar h2 {
             text-align: center;
             color: #FFFFFF;
-            font-size: 1.5em;
+            font-size: 1.5em
         }
 
         .sidebar ul {
@@ -180,6 +180,25 @@
             word-wrap: break-word; /* Break long words to prevent overflow */
         }
 
+        /* for image container */
+        .image-container {
+            width: 100%; /* The container takes 100% of the column's width */
+            padding-top: 65%; /* Maintain a 16:9 aspect ratio (height = 56.25% of width) */
+            background-color: #ffffff; /* Set the background color to white */
+            border: 2px solid #000000; /* Add a black border with a thickness of 2px */
+            position: relative; /* Position relative for absolute positioning of the image */
+            overflow: hidden; /* Ensures images do not overflow the container */
+            box-sizing: border-box; /* Ensures that the border is included in the width and height */
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the image covers the container while maintaining aspect ratio */
+        }
 
 
     </style>
@@ -396,9 +415,9 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/DRO-MARL/compare-result5.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Sample-Efficient Robust Multi-Agent Reinforcement Learning in the Face of Environmental Uncertainty</strong></div></font></h5>
@@ -411,14 +430,15 @@
                         </strong></p>
                     </div>
                 </div>
+                </br>
 
               
 
               <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/pub12-dro-simulator/tv.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>The Curious Price of Distributional Robustness in Reinforcement Learning with a Generative Model</strong></div></font></h5>
@@ -437,9 +457,9 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication9_model-based-offline/prior-work-finite.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Settling the Sample Complexity of Model-Based Offline Reinforcement Learning</strong></div></font></h5>
@@ -458,9 +478,9 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication10_dro_KL/test_winning-v6.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Distributionally Robust  Model-Based Offline Reinforcement Learning with Near-Optimal Sample Complexity</strong></div></font></h5>
@@ -480,9 +500,9 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication_8_pessimistic_Q/pessimisticQ.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Pessimistic Q-Learning for Offline Reinforcement Learning: Towards Optimal Sample Complexity</strong></div></font></h5>
@@ -504,9 +524,9 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication_6_exploration/Model-free-exploration_slides.png" alt="" style="padding-top:16px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Breaking the Sample Complexity Barrier to Regret-Optimal Model-Free Reinforcement Learning</strong></div></font></h5>
@@ -530,9 +550,9 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication3_msbd/texted_preconded_loss_n3p30.jpg" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Manifold Gradient Descent Solves Multi-channel Sparse Blind Deconvolution Provably and Efficiently</strong></div></font></h5>
@@ -542,14 +562,15 @@
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="./laixi_photo/publication3_msbd/msbd_nonconvex.pdf" target="_blank">Slides</a><strong>] [</strong><a href ="./laixi_photo/publication3_msbd/wiml_msbd_2019.pdf" target="_blank">Poster</a><strong>] </strong></p>
                     </div>
                 </div>
+                <br>
 
                 
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication1_hug/overlay_image.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Micro Hand Gesture Recognition System Using Ultrasonic Active Sensing</strong></div></font></h5>
@@ -562,16 +583,17 @@
 
             <!-- </div> -->
                 <div class="row">
-                    <div class="col-lg-12">
+                    <a>
                         <h3 class="page-header" id="projects"><font color=#CD5C5C><div style="line-height:15px"><strong>Projects</strong></div></font></h3>
-                    </div>
+                    </a>
                 </div>
+                <br>
                 
                 <!-- New Project -->
                     <div class="row">
                         <div class="col-md-3">
                             <a>
-                                <img class="img-responsive img-hover" src="./laixi_photo/project1_3dcube/overlay2.png" align="center" alt="" style="padding-top:15px">
+                            <img class="img-responsive img-hover" src="./laixi_photo/project1_3dcube/overlay2.png" align="center" alt="" style="padding-top:15px">
                             </a>
                         </div>
                         <div class="col-md-9">
