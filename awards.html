@@ -1,186 +1,207 @@
 <!DOCTYPE html>
 <html lang="en" class="laixi_homepage">
-  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="icon" href="./laixi_photo/experience/cmu_logo.jpeg" >
-    <meta name="description" content="Personal website of Laixi Shi">
-    
-    <!-- Bootstrap core CSS -->
-    <link href="./files/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="./files/button_style.css" rel="stylesheet"> -->
-    <style>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" href="./laixi_photo/experience/cmu_logo.jpeg" >
+  <meta name="description" content="Personal website of Laixi Shi">
+  
+  <!-- Bootstrap core CSS -->
+  <link href="./files/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="./files/button_style.css" rel="stylesheet"> -->
+  <style>
+      body {
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          background-color: #FFFFFF;
+          color: #000000;
+      }
+
+      .container {
+          width: 100%; /* or any percentage you prefer */
+          margin: 0 auto; /* Center align the container */
+          padding: 20px;
+      }
+
+    /*  @media screen {
         body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            background-color: #FFFFFF;
-            color: #000000;
+          width: 75%;
         }
+      }
 
-        .container {
-            width: 100%; /* or any percentage you prefer */
-            margin: 0 auto; /* Center align the container */
-            padding: 20px;
+      @media print {
+        body {
+          width: 100%;
         }
+      }*/
 
-      /*  @media screen {
-          body {
-            width: 75%;
-          }
-        }
-
-        @media print {
-          body {
-            width: 100%;
-          }
-        }*/
-
-        /* new style added my laixi*/
-        button.ex1 {
-            /* the color*/
-            /*--c:  #229091; */
-            --c: #5F9EA0;
-            /*--c: #ADD8E6;*/
-            box-shadow: 0 0 0 .15em inset var(--c); 
-            --_g: linear-gradient(var(--c) 0 0) no-repeat;
-            background: 
-            var(--_g) calc(var(--_p,0%) - 100%) 0%,
-            var(--_g) calc(200% - var(--_p,0%)) 0%,
-            var(--_g) calc(var(--_p,0%) - 100%) 100%,
-            var(--_g) calc(200% - var(--_p,0%)) 100%;
-            background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-            outline-offset: .1em;
-            transition: background-size .4s, background-position 0s .4s;
-        }
-        button.ex1:hover {
-            --_p: 100%;
-            transition: background-position .4s, background-size 0s;
-        }
-        button.ex1:active {
-            box-shadow: 0 0 9e9q inset #0009; 
-            background-color: var(--c);
-            color: #fff;
-        }
-        button.ex1 {
-            font-family: system-ui, sans-serif;
-            font-size: 4.5rem;
-            cursor: pointer;
-            padding: .1em .6em;
-            font-weight: bold;  
-            border: none;
-        }
-
-        ul.a {
-            list-style-type: square;
-            font-size: 18px;
-        }
-
-        p.ex1 {
-          text-decoration: underline;
-        }
-        .collapsible {
-          background-color: #5F9EA0;
-          color: white;
+      /* new style added my laixi*/
+      button.ex1 {
+          /* the color*/
+          /*--c:  #229091; */
+          --c: #5F9EA0;
+          /*--c: #ADD8E6;*/
+          box-shadow: 0 0 0 .15em inset var(--c); 
+          --_g: linear-gradient(var(--c) 0 0) no-repeat;
+          background: 
+          var(--_g) calc(var(--_p,0%) - 100%) 0%,
+          var(--_g) calc(200% - var(--_p,0%)) 0%,
+          var(--_g) calc(var(--_p,0%) - 100%) 100%,
+          var(--_g) calc(200% - var(--_p,0%)) 100%;
+          background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+          outline-offset: .1em;
+          transition: background-size .4s, background-position 0s .4s;
+      }
+      button.ex1:hover {
+          --_p: 100%;
+          transition: background-position .4s, background-size 0s;
+      }
+      button.ex1:active {
+          box-shadow: 0 0 9e9q inset #0009; 
+          background-color: var(--c);
+          color: #fff;
+      }
+      button.ex1 {
+          font-family: system-ui, sans-serif;
+          font-size: 4.5rem;
           cursor: pointer;
-          padding: 5px;
-          width: 50%;
-          border-style: none;
-          text-align: left;
-          outline: none;
-          font-size: 25px;
-          /*text-decoration: underline;*/
-        }
+          padding: .1em .6em;
+          font-weight: bold;  
+          border: none;
+      }
 
-        .active, .collapsible:hover {
-          background-color: #5F9EA0;
-          
-        }
-
-        .content {
-          padding: 0 18px;
-          display: none;
-          overflow: hidden;
-          background-color: white;
-        }
-
-        h3{
-            color: #CD5C5C;
-        }
-
-
-        /* new style added my laixi*/
-
-        p, li, h1, h2, h3, h4{
-            font-family: 'Helvetica';
-            color: #696969;
-            -webkit-font-smoothing: antialiased;
-            line-height: 20px;
-        }
-
-        p {
-          font-size: 15px;
-
-        }
-        h5 {
+      ul.a {
+          list-style-type: square;
           font-size: 18px;
-        }
-        a:link {color: #000000}
-        a:visited {color: #000000}
-        a:hover {color: #B8860B}
-        a:active {color: #B8860B}
-        a {
+      }
+
+      p.ex1 {
+        text-decoration: underline;
+      }
+      .collapsible {
+        background-color: #5F9EA0;
+        color: white;
+        cursor: pointer;
+        padding: 5px;
+        width: 50%;
+        border-style: none;
+        text-align: left;
+        outline: none;
+        font-size: 25px;
+        /*text-decoration: underline;*/
+      }
+
+      .active, .collapsible:hover {
+        background-color: #5F9EA0;
+        
+      }
+
+      .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: white;
+      }
+
+      h3{
+          color: #CD5C5C;
+      }
+
+
+      /* new style added my laixi*/
+
+      p, li, h1, h2, h3, h4{
+          font-family: 'Helvetica';
+          color: #696969;
+          -webkit-font-smoothing: antialiased;
+          line-height: 20px;
+      }
+
+      p {
+        font-size: 18px;
+
+      }
+      h5 {
+        font-size: 20px;
+        word-wrap: break-word; /* Break long words to prevent overflow */
+        
+      }
+      a:link {color: #000000}
+      a:visited {color: #000000}
+      a:hover {color: #B8860B}
+      a:active {color: #B8860B}
+      a {
+        text-decoration: underline;
+      }
+      #sidebar-wrapper {background-color: #FFFFFF;}
+      .sidebar-nav li a {color: #000000;} 
+
+      /* new style added my laixi for multiple pages*/
+
+      .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0%; /* Set the left margin ratio, adjust as needed */
+          width: 15%; /* Adjust the sidebar width based on the desired ratio */
+          height: 100vh; /* Full height of the viewport */
+          background-color: #3C464F; /* Match the background color from Yuting Wei's site */
+          color: white;
+          padding: 20px;
+          box-sizing: border-box; /* Ensure padding is included in the width */
+          overflow-y: auto; /* Enable scrolling within the sidebar if content exceeds viewport height */
+      }
+
+      .sidebar h2 {
+          text-align: center;
+          color: #FFFFFF;
+          font-size: 1.5em
+      }
+
+      .sidebar ul {
+          list-style-type: none;
+          padding: 0;
+      }
+
+      .sidebar ul li {
+          margin: 15px 0;
+      }
+
+      .sidebar ul li a {
+          color: #FFFFFF;
+          text-decoration: solid;
+          line-height:20px;
+          font-weight: bold;
+          font-size: 1.2em;
+          word-wrap: break-word; /* Break long words to prevent overflow */
+      }
+
+      .sidebar ul li a:hover {
           text-decoration: underline;
-        }
-        #sidebar-wrapper {background-color: #FFFFFF;}
-        .sidebar-nav li a {color: #000000;} 
+          color: #FFFFFF;
+          word-wrap: break-word; /* Break long words to prevent overflow */
+      }
 
-        /* new style added my laixi for multiple pages*/
+      /* for image container */
+      .image-container {
+          width: 100%; /* The container takes 100% of the column's width */
+          padding-top: 65%; /* Maintain a 16:9 aspect ratio (height = 56.25% of width) */
+          background-color: #ffffff; /* Set the background color to white */
+          border: 1.5px solid #cccccc; /* Add a black border with a thickness of 2px */
+          position: relative; /* Position relative for absolute positioning of the image */
+          overflow: hidden; /* Ensures images do not overflow the container */
+          box-sizing: border-box; /* Ensures that the border is included in the width and height */
+      }
 
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0%; /* Set the left margin ratio, adjust as needed */
-            width: 12%; /* Adjust the sidebar width based on the desired ratio */
-            height: 100vh; /* Full height of the viewport */
-            background-color: #3C464F; /* Match the background color from Yuting Wei's site */
-            color: white;
-            padding: 20px;
-            box-sizing: border-box; /* Ensure padding is included in the width */
-            overflow-y: auto; /* Enable scrolling within the sidebar if content exceeds viewport height */
-        }
-
-        .sidebar h2 {
-            text-align: center;
-            color: #FFFFFF;
-            font-size: 1.5em;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin: 15px 0;
-        }
-
-        .sidebar ul li a {
-            color: #FFFFFF;
-            text-decoration: solid;
-            line-height:20px;
-            font-weight: bold;
-            font-size: 1.2em;
-            word-wrap: break-word; /* Break long words to prevent overflow */
-        }
-
-        .sidebar ul li a:hover {
-            text-decoration: underline;
-            color: #FFFFFF;
-            word-wrap: break-word; /* Break long words to prevent overflow */
-        }
+      .image-container img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain; /* Ensures the image covers the container while maintaining aspect ratio */
+      }
 
 
-
-    </style>
+  </style>
 </head>
 <body data-gr-c-s-loaded="true">
     <div id="wrapper">
@@ -256,7 +277,7 @@
               </ul>
       </div>
 
-        <div class="container-fluid" style="display:block;margin-left:12%;margin-right:12%;">
+        <div class="container-fluid" style="display:block;margin-left:16%;margin-right:5%;">
       
             <!-- Awards -->
             <div class="row">

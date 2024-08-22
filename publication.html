@@ -122,6 +122,8 @@
         }
         h5 {
             font-size: 20px;
+            word-wrap: break-word; /* Break long words to prevent overflow */
+            
         }
         a:link {color: #000000}
         a:visited {color: #000000}
@@ -139,7 +141,7 @@
             position: fixed;
             top: 0;
             left: 0%; /* Set the left margin ratio, adjust as needed */
-            width: 12%; /* Adjust the sidebar width based on the desired ratio */
+            width: 15%; /* Adjust the sidebar width based on the desired ratio */
             height: 100vh; /* Full height of the viewport */
             background-color: #3C464F; /* Match the background color from Yuting Wei's site */
             color: white;
@@ -151,7 +153,7 @@
         .sidebar h2 {
             text-align: center;
             color: #FFFFFF;
-            font-size: 1.5em;
+            font-size: 1.5em
         }
 
         .sidebar ul {
@@ -178,6 +180,75 @@
             word-wrap: break-word; /* Break long words to prevent overflow */
         }
 
+        /* for image container */
+        .image-container {
+            width: 100%; /* The container takes 100% of the column's width */
+            padding-top: 65%; /* Maintain a 16:9 aspect ratio (height = 56.25% of width) */
+            background-color: #ffffff; /* Set the background color to white */
+            border: 1.5px solid #cccccc; /* Add a black border with a thickness of 2px */
+            position: relative; /* Position relative for absolute positioning of the image */
+            overflow: hidden; /* Ensures images do not overflow the container */
+            box-sizing: border-box; /* Ensures that the border is included in the width and height */
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the image covers the container while maintaining aspect ratio */
+        }
+
+        .name-text {
+            line-height: 25px;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* a section for publications */
+        .fancy-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-size: 24px;
+            color: #333333;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .section-content {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .section-separator {
+            width: 100%;
+            height: 1px;
+            background-color: #dddddd;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .section-separator::before {
+            content: '';
+            width: 50px;
+            height: 5px;
+            background-color: #009688;
+            position: absolute;
+            left: 50%;
+            top: -2px;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
 
 
     </style>
@@ -255,7 +326,7 @@
                 </ul>
         </div>
 
-        <div class="container-fluid" style="display:block;margin-left:12%;margin-right:12%;">
+        <div class="container-fluid" style="display:block;margin-left:16%;margin-right:5%;">
             
             <!-- Publications -->
             <div class="row">
@@ -264,36 +335,36 @@
                 </div>
             </div>
 
-            <button type="button" class="collapsible" style="margin-bottom:10px;">Reinforcement learning: theory</button>
-            <!-- <div class="content"> -->
-            
+            <section class="fancy-section">
+                <h2 class="section-heading">Data-Efficient Reinforcement Learning</h2>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/DRO-MARL/compare-result5.png" alt="" style="padding-top:15px">
-                        </a>
+                        <div class="image-container">
+                            <img class="img-responsive" src="./laixi_photo/because-overview.png" alt="" style="padding-top:15px">
+                        </div>
                     </div>
                     <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>Sample-Efficient Robust Multi-Agent Reinforcement Learning in the Face of Environmental Uncertainty</strong></div></font></h5>
-                        <p style="line-height:20px"><strong>Laixi Shi</strong>, Eric Mazumdar, Yuejie Chi, Adam Wierman.<br> International Conference on Machine Learning (ICML), 2024.</p>
-
-                        </p>
+                        <h5><font color=#000000><div style="line-height:20px"><strong>BECAUSE: Bilinear Causal Representation for Generalizable Offline Model-based Reinforcement Learning</strong></div></font></h5>
+                        <p style="line-height:20px">Haohong Lin, Wenhao Ding, Jian Chen, <span class="name-text">Laixi Shi</span>, Jiacheng Zhu, Bo Li, Ding Zhao. 
+                            <br> <span style="color:#2C5DAF;"><strong>Preprint.</strong></p>
                         <p style="line-height:10px;color: #000000"><strong>
-                        [</strong><a href ="https://arxiv.org/pdf/2404.18909" target="_blank">Arxiv</a><strong>]
+                        [</strong><a href ="https://arxiv.org/abs/2407.10967" target="_blank">Arxiv</a><strong>]
                         </strong></p>
                     </div>
                 </div>
+                <br>
 
                <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/federated-offline/fedlcbq-alg.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Federated Offline Reinforcement Learning: Collaborative Single-Policy Coverage Suffices</strong></div></font></h5>
-                        <p style="line-height:20px">Jiin Woo, <strong>Laixi Shi</strong>, Gauri Joshi, Yuejie Chi. <br> International Conference on Machine Learning (ICML), 2024.</p>
+                        <p style="line-height:25px">Jiin Woo, <span class="name-text">Laixi Shi</span>, Gauri Joshi, Yuejie Chi. 
+                            <br> <span style="color:#2C5DAF;"><strong>International Conference on Machine Learning (ICML), 2024.</strong></p>
 
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>
@@ -301,75 +372,20 @@
                         </strong></p>
                     </div>
                 </div>
+                <br>
 
-              <div class="row">
-                    <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/DRO-LFA/dro-LFA-figure.png" alt="" style="padding-top:15px">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>Sample Complexity of Offline Distributionally Robust Linear Markov Decision Processes</strong></div></font></h5>
-                        <p style="line-height:20px">He Wang, <strong>Laixi Shi</strong>, Yuejie Chi. <br>Reinforcement Learning Conference (RLC), 2024.</p>
-
-                        </p>
-                        <p style="line-height:10px;color: #000000"><strong>
-                        [</strong><a href ="https://arxiv.org/abs/2403.12946.pdf" target="_blank">Arxiv</a><strong>]
-                        </strong></p>
-                    </div>
-                </div>
-
-              <div class="row">
-                    <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/pub12-dro-simulator/tv.png" alt="" style="padding-top:15px">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>The Curious Price of Distributional Robustness in Reinforcement Learning with a Generative Model</strong></div></font></h5>
-                        <p style="line-height:20px"><strong>Laixi Shi</strong>, Gen Li, Yuting Wei, Yuxin Chen, Matthieu Geist, Yuejie Chi. <br> Conference on Neural Information Processing Systems (NeurIPS), 2023.</p>
-
-                        </p>
-                        <p style="line-height:10px;color: #000000"><strong>
-                        [</strong><a href ="https://arxiv.org/pdf/2305.16589.pdf" target="_blank">Paper</a><strong>]
-                        [</strong><a href="./laixi_photo/pub12-dro-simulator/robustRL-laixi-Duke.pdf" target="_blank">Slides</a><strong>]
-                        </strong></p>
-                    </div>
-                </div>
-
-
-              
-
-
+            
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/publication10_dro_KL/test_winning-v6.png" alt="" style="padding-top:15px">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>Distributionally Robust  Model-Based Offline Reinforcement Learning with Near-Optimal Sample Complexity</strong></div></font></h5>
-                        <p style="line-height:20px"><strong>Laixi Shi</strong> and Yuejie Chi. <br> Accepted by Journal of Machine Learning Research (JMLR).</p>
-
-                        </p>
-                        <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/pdf/2208.05767.pdf" target="_blank">Paper</a><strong>]
-                        [</strong><a href="./laixi_photo/pub12-dro-simulator/robustRL-laixi-Duke.pdf" target="_blank">Slides</a><strong>]
-                        </strong></p>
-                        <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/2110.04645.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="https://recorder-v3.slideslive.com/?share=49863&s=526cc872-d628-493c-b48a-e9051c89d8b8" target="_blank">Talk</a><strong>] </strong></p> -->
-                        <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication9_model-based-offline/prior-work-finite.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Settling the Sample Complexity of Model-Based Offline Reinforcement Learning</strong></div></font></h5>
-                        <p style="line-height:20px">Gen Li, <strong>Laixi Shi</strong>, Yuxin Chen, Yuejie Chi, Yuting Wei. <br> Accepted by The Annals of Statistics. </p>
+                        <p style="line-height:20px">Gen Li, <span style="color:black;"><strong>Laixi Shi</strong></span>, Yuxin Chen, Yuejie Chi, Yuting Wei. 
+                            <br> <span style="color:#2C5DAF;"><strong>The Annals of Statistics, 2024.</strong></span> </p>
 
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/pdf/2204.05275.pdf" target="_blank">Paper</a><strong>] </strong></p>
@@ -377,16 +393,20 @@
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
+                <br>
+
+
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication_8_pessimistic_Q/pessimisticQ.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Pessimistic Q-Learning for Offline Reinforcement Learning: Towards Optimal Sample Complexity</strong></div></font></h5>
-                        <p style="line-height:20px"> <strong>Laixi Shi</strong>, Gen Li, Yuting Wei, Yuxin Chen, Yuejie Chi. <br> International Conference on Machine Learning (ICML), 2022.</p>
+                        <p style="line-height:25px"> <span style="color:black;"><strong>Laixi Shi</strong></span>, Gen Li, Yuting Wei, Yuxin Chen, Yuejie Chi. 
+                            <br> <span style="color:#2C5DAF;"><strong>International Conference on Machine Learning (ICML), 2022.</strong></span></p>
 
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="http://arxiv.org/abs/2202.13890" target="_blank">Paper</a><strong>] </strong></p>
@@ -394,21 +414,19 @@
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
-
-
-
-                
-
+                <br>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication_6_exploration/Model-free-exploration_slides.png" alt="" style="padding-top:16px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Breaking the Sample Complexity Barrier to Regret-Optimal Model-Free Reinforcement Learning</strong></div></font></h5>
-                        <p style="line-height:20px">Gen Li, <strong>Laixi Shi</strong>, Yuxin Chen, Yuejie Chi <br> Information and Inference: A Journal of the IMA. A short version accepted as [<strong style="color:#B22222;">NeurIPS Spotlight</strong>] Conference on Neural Information Processing Systems (NeurIPS), 2021</p>
+                        <p style="line-height:25px">Gen Li, <span style="color:black;"><strong>Laixi Shi</strong></span>, Yuxin Chen, Yuejie Chi 
+                            <br> <span style="color:#2C5DAF;"><strong>Information and Inference: A Journal of the IMA, 2023.</strong></span>
+                            <br> <strong style="color:#B22222;">NeurIPS Spotlight, 2021</strong></p>
                         <p style="line-height:10px;color: #000000"><strong>
                         [</strong><a href="./laixi_photo/publication_6_exploration/model-free-exploration.pdf" target="_blank">Paper</a><strong>] 
                         [</strong><a href="https://arxiv.org/pdf/2110.04645.pdf" target="_blank">Arxiv</a><strong>] 
@@ -419,38 +437,18 @@
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
+                <br>
 
-            <!-- </div> -->
-
-            <button type="button" class="collapsible" style="margin-bottom:10px;">Reinforcement learning: practice</button>
-            <!-- <div class="content"> -->
-
-            <div class="row">
+                <div class="row">
                     <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/16-safe-sample/cover.png" alt="" style="padding-top:15px">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>Enhancing Efficiency of Safe Reinforcement Learning via Sample Manipulation</strong></div></font></h5>
-                        <p style="line-height:20px">Shangding Gu*, <strong>Laixi Shi*</strong>, Yuhao Ding, Alois Knoll, Costas Spanos, Adam Wierman, Ming Jin. <br> Preprint.</p>
-
-                        </p>
-                        <p style="line-height:10px;color: #000000"><strong>
-                        [</strong><a href ="https://arxiv.org/pdf/2405.20860" target="_blank">Arxiv</a><strong>]
-                        </strong></p>
-                    </div>
-                </div>
-
-            <div class="row">
-                    <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/pub13-qsarsa/intro_test.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Offline Reinforcement Learning with On-Policy Q-Function Regularization</strong></div></font></h5>
-                        <p style="line-height:20px"><strong>Laixi Shi</strong>, Robert Dadashi, Yuejie Chi, Pablo Samuel Castro, Matthieu Geist. <br> European Conference on Machine Learning (ECML), 2023.</p>
+                        <p style="line-height:25px"><span class="name-text">Laixi Shi</span>, Robert Dadashi, Yuejie Chi, Pablo Samuel Castro, Matthieu Geist. 
+                            <br> <span style="color:#2C5DAF;"><strong>European Conference on Machine Learning (ECML), 2023.</strong></p>
 
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/abs/2307.13824" target="_blank">Arxiv</a><strong>] </strong></p>
@@ -458,33 +456,18 @@
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
+                <br>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/pub15-causal-dro/motivation3.png" alt="" style="padding-top:15px">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>Seeing is not Believing: Robust Reinforcement Learning against Spurious Correlation</strong></div></font></h5>
-                        <p style="line-height:20px">Wenhao Ding*, <strong>Laixi Shi*</strong>, Yuejie Chi, Ding Zhao. <br> Conference on Neural Information Processing Systems (NeurIPS), 2023. A short version at the Second Workshop on Spurious Correlations, Invariance and Stability of International Conference on Machine Learning (ICML), 2023.</p>
-
-                        </p>
-                        <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/abs/2307.07907" target="_blank">Arxiv</a><strong>] [</strong><a href="https://sites.google.com/view/causaldro" target="_blank">Website</a><strong>]</strong></p>
-                    </div>
-                </div>
-
-
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/pub14-DT-offline/attn_stats_crop.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>A Trajectory is Worth Three Sentences: Multimodal Transformer for Offline Reinforcement Learning</strong></div></font></h5>
-                        <p style="line-height:20px">Yiqi Wang, Mengdi Xu, <strong>Laixi Shi</strong>, Yuejie Chi. <br> The Conference on Uncertainty in Artificial Intelligence (UAI), 2023.</p>
+                        <p style="line-height:25px">Yiqi Wang, Mengdi Xu, <span class="name-text">Laixi Shi</span>, Yuejie Chi. 
+                            <br> <span style="color:#2C5DAF;"><strong>The Conference on Uncertainty in Artificial Intelligence (UAI), 2023.</strong></p>
 
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://openreview.net/pdf?id=yE1_GpmDOPL" target="_blank">Paper</a><strong>] </strong></p>
@@ -492,17 +475,19 @@
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
+                <br>
 
 
             <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication11_CRL/experiments.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Curriculum Reinforcement Learning using Optimal Transport via Gradual Domain Adaptation</strong></div></font></h5>
-                        <p style="line-height:20px"><a href ="https://peidehuang.github.io/" target="_blank">Peide Huang</a>, <a href ="https://mxu34.github.io/" target="_blank">Mengdi Xu</a>, <a href ="https://jiachengzhuml.github.io/" target="_blank">Jiacheng Zhu</a>, <strong>Laixi Shi</strong>, Fei Fang, Ding Zhao <br> Conference on Neural Information Processing Systems (NeurIPS), 2022</p>
+                        <p style="line-height:25px"><a href ="https://peidehuang.github.io/" target="_blank">Peide Huang</a>, <a href ="https://mxu34.github.io/" target="_blank">Mengdi Xu</a>, <a href ="https://jiachengzhuml.github.io/" target="_blank">Jiacheng Zhu</a>, <span class="name-text">Laixi Shi</span>, Fei Fang, Ding Zhao 
+                            <br> <span style="color:#2C5DAF;"><strong>Conference on Neural Information Processing Systems (NeurIPS), 2022.</strong></p>
 
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/abs/2210.10195" target="_blank">Paper</a><strong>] </strong></p>
@@ -511,107 +496,303 @@
                     </div>
                 </div>
 
+            
+            </section>
+
+            <div class="section-separator"></div>
+            <!-- </div> -->
+
+            <section class="fancy-section">
+                <h2 class="section-heading">Robust and Safe Reinforcement Learning</h2>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image-container">
+                        <img class="img-responsive" src="./laixi_photo/DRO-MARL/compare-result5.png" alt="" style="padding-top:15px">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h5><font color=#000000><div style="line-height:20px"><strong>Sample-Efficient Robust Multi-Agent Reinforcement Learning in the Face of Environmental Uncertainty</strong></div></font></h5>
+                    <p style="line-height:25px"><span style="color:black;"><strong>Laixi Shi</strong></span>, Eric Mazumdar, Yuejie Chi, Adam Wierman.
+                        <br> <span style="color:#2C5DAF;"><strong>International Conference on Machine Learning (ICML), 2024.</span></strong></p>
+
+                    </p>
+                    <p style="line-height:10px;color: #000000"><strong>
+                    [</strong><a href ="https://arxiv.org/pdf/2404.18909" target="_blank">Arxiv</a><strong>]
+                    </strong></p>
+                </div>
+            </div>
+            </br>
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image-container">
+                        <img class="img-responsive" src="./laixi_photo/robust-sensitive-img.png" alt="" style="padding-top:15px">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h5><font color=#000000><div style="line-height:20px"><strong>Tractable Equilibrium Computation in Markov Games through Risk Aversion</strong></div></font></h5>
+                    <p style="line-height:20px">Eric Mazumdar*, Kishan Panaganti*, <span class="name-text">Laixi Shi*</span>. 
+                        <br> <span style="color:#2C5DAF;"><strong>Preprint.</strong></p>
+                    <p style="line-height:10px;color: #000000"><strong>
+                    [</strong><a href ="https://arxiv.org/abs/2406.14156" target="_blank">Arxiv</a><strong>]
+                    </strong></p>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image-container">
+                        <img class="img-responsive" src="./laixi_photo/DRO-LFA/dro-LFA-figure.png" alt="" style="padding-top:15px">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h5><font color=#000000><div style="line-height:20px"><strong>Sample complexity of offline distributionally robust linear markov decision processes</strong></div></font></h5>
+                    <p style="line-height:25px">He Wang, <span style="color:black;"><strong>Laixi Shi</strong></span>, Yuejie Chi.
+                        <br> <span style="color:#2C5DAF;"><strong>Reinforcement Learning Conference (RLC), 2024.</span></strong></p>
+
+                    </p>
+                    <p style="line-height:10px;color: #000000"><strong>
+                    [</strong><a href ="https://arxiv.org/abs/2403.12946" target="_blank">Arxiv</a><strong>]
+                    </strong></p>
+                </div>
+            </div>
+            </br>
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image-container">
+                        <img class="img-responsive" src="./laixi_photo/DRO+safe-RL.png" alt="" style="padding-top:15px">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h5><font color=#000000><div style="line-height:20px"><strong>Distributionally Robust Constrained
+                        Reinforcement Learning under Strong Duality</strong></div></font></h5>
+                    <p style="line-height:25px">Zhengfei Zhang, Kishan Panaganti, <span style="color:black;"><strong>Laixi Shi</strong></span>, Laixi Shi, Yanan Sui, Adam Wierman, Yisong Yue.
+                        <br> <span style="color:#2C5DAF;"><strong>Reinforcement Learning Conference (RLC), 2024.</span></strong></p>
+
+                    </p>
+                    <p style="line-height:10px;color: #000000"><strong>
+                    [</strong><a href ="https://arxiv.org/abs/2406.15788" target="_blank">Arxiv</a><strong>]
+                    </strong></p>
+                </div>
+            </div>
+            </br>
+
+            
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image-container">
+                        <img class="img-responsive" src="./laixi_photo/pub12-dro-simulator/tv.png" alt="" style="padding-top:15px">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h5><font color=#000000><div style="line-height:20px"><strong>The Curious Price of Distributional Robustness in Reinforcement Learning with a Generative Model</strong></div></font></h5>
+                    <p style="line-height:25px"><span style="color:black;"><strong>Laixi Shi</strong></span>, Gen Li, Yuting Wei, Yuxin Chen, Matthieu Geist, Yuejie Chi. 
+                        <br> <span style="color:#2C5DAF;"><strong>Under review at Operations Research</strong></span>
+                        <br> <span style="color:#2C5DAF;"><strong>Conference on Neural Information Processing Systems (NeurIPS), 2023.</strong></span></p>
+
+                    </p>
+                    <p style="line-height:10px;color: #000000"><strong>
+                    [</strong><a href ="https://arxiv.org/pdf/2305.16589.pdf" target="_blank">Paper</a><strong>]
+                    [</strong><a href="./laixi_photo/pub12-dro-simulator/robustRL-laixi-Duke.pdf" target="_blank">Slides</a><strong>]
+                    </strong></p>
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="image-container">
+                        <img class="img-responsive" src="./laixi_photo/publication10_dro_KL/test_winning-v6.png" alt="" style="padding-top:15px">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <h5><font color=#000000><div style="line-height:20px"><strong>Distributionally Robust  Model-Based Offline Reinforcement Learning with Near-Optimal Sample Complexity</strong></div></font></h5>
+                    <p style="line-height:25px"><span style="color:black;"><strong>Laixi Shi</strong></span> and Yuejie Chi. 
+                        <br> <span style="color:#2C5DAF;"><strong>Journal of Machine Learning Research (JMLR), 2024.</strong></span></p>
+
+                    </p>
+                    <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/pdf/2208.05767.pdf" target="_blank">Paper</a><strong>]
+                    [</strong><a href="./laixi_photo/pub12-dro-simulator/robustRL-laixi-Duke.pdf" target="_blank">Slides</a><strong>]
+                    </strong></p>
+                    <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/2110.04645.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="https://recorder-v3.slideslive.com/?share=49863&s=526cc872-d628-493c-b48a-e9051c89d8b8" target="_blank">Talk</a><strong>] </strong></p> -->
+                    <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
+                </div>
+            </div>
+            <br>
+
+            <div class="row">
+                    <div class="col-md-3">
+                        <div class="image-container">
+                            <img class="img-responsive" src="./laixi_photo/16-safe-sample/cover.png" alt="" style="padding-top:15px">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h5><font color=#000000><div style="line-height:20px"><strong>Enhancing Efficiency of Safe Reinforcement Learning via Sample Manipulation</strong></div></font></h5>
+                        <p style="line-height:20px">Shangding Gu*, <span class="name-text">Laixi Shi*</span>, Yuhao Ding, Alois Knoll, Costas Spanos, Adam Wierman, Ming Jin. 
+                            <br> <span style="color:#2C5DAF;"><strong>Preprint.</strong></p>
+
+                        </p>
+                        <p style="line-height:10px;color: #000000"><strong>
+                        [</strong><a href ="https://arxiv.org/pdf/2405.20860" target="_blank">Arxiv</a><strong>]
+                        </strong></p>
+                    </div>
+            </div>
+            <br>
+
+        
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="image-container">
+                            <img class="img-responsive" src="./laixi_photo/pub15-causal-dro/motivation3.png" alt="" style="padding-top:15px">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h5><font color=#000000><div style="line-height:20px"><strong>Seeing is not Believing: Robust Reinforcement Learning against Spurious Correlation</strong></div></font></h5>
+                        <p style="line-height:25px">Wenhao Ding*, <span class="name-text">Laixi Shi*</span>, Yuejie Chi, Ding Zhao. 
+                            <br> <span style="color:#2C5DAF;"><strong>Conference on Neural Information Processing Systems (NeurIPS), 2023.</strong></span>
+                            <br> <span style="color:#2C5DAF;"><strong>The Second Workshop on Spurious Correlations, Invariance and Stability of ICML, 2023.</strong></p>
+
+                        </p>
+                        <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="https://arxiv.org/abs/2307.07907" target="_blank">Arxiv</a><strong>] [</strong><a href="https://sites.google.com/view/causaldro" target="_blank">Website</a><strong>]</strong></p>
+                    </div>
+                </div>
+                <br>
+
+
+
+                
+
+            </section>
+
+            <div class="section-separator"></div>
             <!-- </div> -->
 
 
-            <button type="button" class="collapsible" style="margin-bottom:10px;">(Nonconvex) optimization for signal processing</button>
+            <section class="fancy-section">
+                <h2 class="section-heading">Data-Driven Optimization for Inverse Problems</h2>
 
             <!-- <div class="content"> -->
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication3_msbd/texted_preconded_loss_n3p30.jpg" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Manifold Gradient Descent Solves Multi-channel Sparse Blind Deconvolution Provably and Efficiently</strong></div></font></h5>
-                        <p style="line-height:20px"> <strong>Laixi Shi</strong>, Yuejie Chi<br>IEEE Transactions on Information Theory, vol. 67, no. 7, pp. 4784-4811, 2021. A short conference version has been accepted by International Conference on Acoustics, Speech, and Signal ProcessingInternational Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2020.</p>
+                        <p style="line-height:25px"> <span style="color:black;"><strong>Laixi Shi</strong></span>, Yuejie Chi
+                            <br> <span style="color:#2C5DAF;"><strong>IEEE Transactions on Information Theory, 2021.</strong></span>
+                            <br> <span style="color:#2C5DAF;"><strong>International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2020.</strong></p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="./laixi_photo/publication3_msbd/msbd_nonconvex.pdf" target="_blank">Slides</a><strong>] [</strong><a href ="./laixi_photo/publication3_msbd/wiml_msbd_2019.pdf" target="_blank">Poster</a><strong>] </strong></p>
                     </div>
                 </div>
+                <br>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication_5_rpca_merl/S_ground_truth_10.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Robust camera pose estimation for image stitching</strong></div></font></h5>
-                        <p style="line-height:20px"> <strong>Laixi Shi</strong>, Dehong Liu, Jay Thornton<br>IEEE International Conference on Image Processing (ICIP), 2021.</p>
+                        <p style="line-height:25px"> <span class="name-text">Laixi Shi</span>, Dehong Liu, Jay Thornton
+                            <br><span style="color:#2C5DAF;"><strong>IEEE International Conference on Image Processing (ICIP), 2021.</strong></p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href="./laixi_photo/publication_5_rpca_merl/paper.pdf" target="_blank">Paper</a><strong>] 
                         [</strong><a href ="./laixi_photo/publication_5_rpca_merl/rpca_ICIP_2021_slides.pdf" target="_blank">Slides</a><strong>]</strong></p>
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
+                <br>
 
             <!-- </div> -->
 
-
-            <button type="button" class="collapsible">Real-world data science solutions</button>
             <!-- <div class="content"> -->
+                
+
+
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
+                            <img class="img-responsive" src="./laixi_photo/publication4_fusion4strain/framework_summary.png" alt="" style="padding-top:15px">
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <h5><font color=#000000><div style="line-height:20px"><strong>Fusion-Based Digital Image Correlation Framework for Strain Measurement</strong></div></font></h5>
+                        <p style="line-height:20px"> <span class="name-text">Laixi Shi</span>, Dehong Liu, Masaki Umeda, and Norihiko Hana
+                            <br><span style="color:#2C5DAF;"><strong>International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2021.</strong></p>
+                        <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://www.merl.com/publications/docs/TR2021-012.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="./laixi_photo/publication4_fusion4strain/Crackdetection_icassp_2021.pdf" target="_blank">Slides</a><strong>]</strong></p>
+                        <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
+                    </div>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication7_LGA/LGA.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Latent Goal Allocation for Multi-Agent Goal-Conditioned Self-Supervised Imitation Learning</strong></div></font></h5>
-                        <p style="line-height:20px"> <strong>Laixi Shi<sup>*</sup></strong>, <a href ="https://peidehuang.github.io/" target="_blank">Peide Huang</a><sup>*</sup>, <a href ="https://ruichen.pub/" target="_blank">Rui Chen</a><sup>*</sup> <br> NeurIPS Workshop on Bayesian Deep Learning, 2021 ( <sup>*</sup> = equal contribution)</p>
-
+                        <p style="line-height:20px"> <span class="name-text">Laixi Shi*</span>, <a href ="https://peidehuang.github.io/" target="_blank">Peide Huang</a><sup>*</sup>, <a href ="https://ruichen.pub/" target="_blank">Rui Chen</a><sup>*</sup> 
+                            <br> <span style="color:#2C5DAF;"><strong>NeurIPS Workshop on Bayesian Deep Learning, 2021.</strong></p>
+    
                         </p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href ="./laixi_photo/publication7_LGA/LGA_BDL_workshop_final_version.pdf" target="_blank">Paper</a><strong>] </strong></p>
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/2110.04645.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="https://recorder-v3.slideslive.com/?share=49863&s=526cc872-d628-493c-b48a-e9051c89d8b8" target="_blank">Talk</a><strong>] </strong></p> -->
                         <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
                     </div>
                 </div>
-
-
-                <div class="row">
-                    <div class="col-md-3">
-                        <a>
-                            <img class="img-responsive" src="./laixi_photo/publication4_fusion4strain/framework_summary.png" alt="" style="padding-top:15px">
-                        </a>
-                    </div>
-                    <div class="col-md-9">
-                        <h5><font color=#000000><div style="line-height:20px"><strong>Fusion-Based Digital Image Correlation Framework for Strain Measurement</strong></div></font></h5>
-                        <p style="line-height:20px"> <strong>Laixi Shi</strong>, Dehong Liu, Masaki Umeda, and Norihiko Hana<br>International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2021.</p>
-                        <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://www.merl.com/publications/docs/TR2021-012.pdf" target="_blank">Paper</a><strong>] [</strong><a href ="./laixi_photo/publication4_fusion4strain/Crackdetection_icassp_2021.pdf" target="_blank">Slides</a><strong>]</strong></p>
-                        <!-- <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://arxiv.org/pdf/1911.11167.pdf" target="_blank">Paper</a><strong>] </strong></p> -->
-                    </div>
-                </div>
+                <br>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication2_multiple_localize/multiple_people_localization.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Device-free Multiple People Localization through Floor Vibration</strong></div></font></h5>
-                        <p style="line-height:20px"> <strong>Laixi Shi</strong>, Mostafa Mirshekari, Jonathon Fagert, Yuejie Chi, Hae Young Noh, Pei Zhang, and Shijia Pan<br>First ACM Workshop on Device-Free Human Sensing, 2019.</p>
+                        <p style="line-height:20px"> <span class="name-text">Laixi Shi</span>, Mostafa Mirshekari, Jonathon Fagert, Yuejie Chi, Hae Young Noh, Pei Zhang, and Shijia Pan
+                            <br><span style="color:#2C5DAF;"><strong> The First ACM Workshop on Device-Free Human Sensing, 2019.</strong></p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://dl.acm.org/citation.cfm?id=3360887" target="_blank">Paper</a><strong>] [</strong><a href="./laixi_photo/publication2_multiple_localize/DFHS_multiple_localization.pdf" target="_blank">Slides</a><strong>]</strong></p>
                     </div>
                 </div>
+                <br>
 
                 <div class="row">
                     <div class="col-md-3">
-                        <a>
+                        <div class="image-container">
                             <img class="img-responsive" src="./laixi_photo/publication1_hug/overlay_image.png" alt="" style="padding-top:15px">
-                        </a>
+                        </div>
                     </div>
                     <div class="col-md-9">
                         <h5><font color=#000000><div style="line-height:20px"><strong>Micro Hand Gesture Recognition System Using Ultrasonic Active Sensing</strong></div></font></h5>
-                        <p style="line-height:20px">Yu Sang, <strong>Laixi Shi</strong>, Yimin Liu<br>IEEE Access, vol. 6, pp. 49339-49347, 2018.</p>
+                        <p style="line-height:25px">Yu Sang, <span style="color:black;"><strong>Laixi Shi</strong></span>, Yimin Liu
+                            <br> <span style="color:#2C5DAF;"><strong>IEEE Access, 2018.</strong></span></p>
                         <p style="line-height:10px;color: #000000"><strong>[</strong><a href="https://ieeexplore.ieee.org/abstract/document/8453783" target="_blank">Paper</a><strong>] [</strong><a href="https://www.youtube.com/watch?v=8FgdiIb9WqY" target="_blank">Video</a><strong>]</strong></p>
                     </div>
                 </div>
-
+            
+            </section>
             
             </div>
+        
+
+        
     </div> <!-- /#page-content-wrapper -->
+
+    
+
+    
+    <!-- </div> -->
 
    
     <hr>
