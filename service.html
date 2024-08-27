@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" class="laixi_homepage">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="./laixi_photo/experience/cmu_logo.jpeg" >
+    <meta name="description" content="Personal website of Laixi Shi">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="./files/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="./files/button_style.css" rel="stylesheet"> -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .container {
+            width: 100%; /* or any percentage you prefer */
+            margin: 0 auto; /* Center align the container */
+            padding: 20px;
+        }
+
+        /*  @media screen {
+            body {
+            width: 75%;
+            }
+        }
+
+        @media print {
+            body {
+            width: 100%;
+            }
+        }*/
+
+        /* new style added my laixi*/
+        button.ex1 {
+            /* the color*/
+            /*--c:  #229091; */
+            --c: #5F9EA0;
+            /*--c: #ADD8E6;*/
+            box-shadow: 0 0 0 .15em inset var(--c); 
+            --_g: linear-gradient(var(--c) 0 0) no-repeat;
+            background: 
+            var(--_g) calc(var(--_p,0%) - 100%) 0%,
+            var(--_g) calc(200% - var(--_p,0%)) 0%,
+            var(--_g) calc(var(--_p,0%) - 100%) 100%,
+            var(--_g) calc(200% - var(--_p,0%)) 100%;
+            background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+            outline-offset: .1em;
+            transition: background-size .4s, background-position 0s .4s;
+        }
+        button.ex1:hover {
+            --_p: 100%;
+            transition: background-position .4s, background-size 0s;
+        }
+        button.ex1:active {
+            box-shadow: 0 0 9e9q inset #0009; 
+            background-color: var(--c);
+            color: #fff;
+        }
+        button.ex1 {
+            font-family: system-ui, sans-serif;
+            font-size: 4.5rem;
+            cursor: pointer;
+            padding: .1em .6em;
+            font-weight: bold;  
+            border: none;
+        }
+
+        ul.a {
+            list-style-type: square;
+            font-size: 18px;
+        }
+
+        p.ex1 {
+            text-decoration: underline;
+        }
+        .collapsible {
+            background-color: #5F9EA0;
+            color: white;
+            cursor: pointer;
+            padding: 5px;
+            width: 50%;
+            border-style: none;
+            text-align: left;
+            outline: none;
+            font-size: 25px;
+            /*text-decoration: underline;*/
+        }
+
+        .active, .collapsible:hover {
+            background-color: #5F9EA0;
+            
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: white;
+        }
+
+        h3{
+            color: #CD5C5C;
+            line-height: 25px;
+        }
+
+
+        /* new style added my laixi*/
+
+        p, li, h1, h2, h3, h4{
+            font-family: 'Helvetica';
+            color: #696969;
+            -webkit-font-smoothing: antialiased;
+            line-height: 20px;
+        }
+
+        p {
+            font-size: 18px;
+
+        }
+        h5 {
+            font-size: 20px;
+            word-wrap: break-word; /* Break long words to prevent overflow */
+            
+        }
+        a:link {color: #000000}
+        a:visited {color: #000000}
+        a:hover {color: #B8860B}
+        a:active {color: #B8860B}
+        a {
+            text-decoration: underline;
+        }
+        #sidebar-wrapper {background-color: #FFFFFF;}
+        .sidebar-nav li a {color: #000000;} 
+
+        /* new style added my laixi for multiple pages*/
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0%; /* Set the left margin ratio, adjust as needed */
+            width: 15%; /* Adjust the sidebar width based on the desired ratio */
+            height: 100vh; /* Full height of the viewport */
+            background-color: #3C464F; /* Match the background color from Yuting Wei's site */
+            color: white;
+            padding: 20px;
+            box-sizing: border-box; /* Ensure padding is included in the width */
+            overflow-y: auto; /* Enable scrolling within the sidebar if content exceeds viewport height */
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            color: #FFFFFF;
+            font-size: 1.5em
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: #FFFFFF;
+            text-decoration: solid;
+            line-height:20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            word-wrap: break-word; /* Break long words to prevent overflow */
+        }
+
+        .sidebar ul li a:hover {
+            text-decoration: underline;
+            color: #FFFFFF;
+            word-wrap: break-word; /* Break long words to prevent overflow */
+        }
+
+        /* for image container */
+        .image-container {
+            width: 100%; /* The container takes 100% of the column's width */
+            padding-top: 65%; /* Maintain a 16:9 aspect ratio (height = 56.25% of width) */
+            background-color: #ffffff; /* Set the background color to white */
+            border: 1.5px solid #cccccc; /* Add a black border with a thickness of 2px */
+            position: relative; /* Position relative for absolute positioning of the image */
+            overflow: hidden; /* Ensures images do not overflow the container */
+            box-sizing: border-box; /* Ensures that the border is included in the width and height */
+        }
+
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Ensures the image covers the container while maintaining aspect ratio */
+        }
+
+        .name-text {
+            line-height: 25px;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* a section for publications */
+        .fancy-section {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .section-heading {
+            font-size: 24px;
+            color: #333333;
+            border-bottom: 2px solid #cccccc;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .section-content {
+            font-size: 16px;
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        .section-separator {
+            width: 100%;
+            height: 1px;
+            background-color: #dddddd;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .section-separator::before {
+            content: '';
+            width: 50px;
+            height: 5px;
+            background-color: #009688;
+            position: absolute;
+            left: 50%;
+            top: -2px;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+
+    </style>
+</head>
+<body data-gr-c-s-loaded="true">
+    <div id="wrapper">
+    <title>Laixi Shi - Carnegie Mellon University</title>
+    <style>
+          /* This is for the photo gallery */
+        #photos {
+          /* Prevent vertical gaps */
+          line-height: 0;
+          -webkit-column-count: 5;
+          -webkit-column-gap:   0px;
+          -moz-column-count:    5;
+          -moz-column-gap:      0px;
+          column-count:         4;     /* number of columns */
+          column-gap:           10px;  /* gap width between columns */
+        }
+        #photos img {
+          /* Just in case there are inline attributes */
+          width: 100% !important;
+          height: auto !important;
+          padding-bottom: 10px;
+        }
+        /*set for fewer columns if screen width is narrower*/
+        @media (max-width: 800px) {
+          #photos {
+          -moz-column-count:    2;
+          -webkit-column-count: 2;
+          column-count:         2;
+          }
+        }
+        @media (max-width: 400px) {
+          #photos {
+          -moz-column-count:    1;
+          -webkit-column-count: 1;
+          column-count:         1;
+          }
+        }
+        
+        /* for image caption */
+        figure {
+             display:block;
+             position:relative;
+             overflow:hidden;
+        }
+        figcaption {
+             display:block;
+             width:100%;
+             height:30px;
+             padding:10px;
+             position:absolute;
+             top:0%;
+             left:0;
+             color:#FFFFFF;
+             font:12px/18px Arial, sans-serif;
+             background:#000000;
+             background:rgba(0,0,0,.5);
+        }
+    </style>
+
+<div id="content">
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <div class="sidebar">
+            <br>
+            <br>
+            <img class="img-responsive img-hover"; align="center"; src="./laixi_photo/summary/Caltech_LOGO2.png"; width='150'; vertical-align='middle'>
+            <hr>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="publication.html">Publications</a></li>
+                    <li><a href="service.html">Teaching and Services</a></li>
+                    <li><a href="awards.html">Awards</a></li>
+                </ul>
+        </div>
+
+        <div class="container-fluid" style="display:block;margin-left:16%;margin-right:5%;">
+            
+            <!-- Publications -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header" id="services"><font color=#CD5C5C><div style="line-height:15px"><strong>Teaching and Services</strong></div></font></h3>
+
+
+                </div>
+            </div>
+
+            <section class="fancy-section">
+                <h2 class="section-heading">Teaching</h2>
+                <h3><font color=#000000>Teaching assistant for 18202 Mathematical Foundations of Electrical Engineering, CMU ECE Department, 2020 and 2021.</font></h3>
+                <h3><font color=#000000>Instructor for Reinforcement Learning Bootcamp, Caltech, 2024.</font></h3>
+        
+
+            </section>
+
+            <div class="section-separator"></div>
+            <!-- </div> -->
+
+            <section class="fancy-section">
+                <h2 class="section-heading">Services and Outreach</h2>
+                <h3><font color=#000000>Area Chair in Conference on Parsimony and Learning (CPAL), 2024.</font></h3>
+                <h3><font color=#000000>Session Chair for the strategic and distributionally robust sequential decision making session
+                    at the INFORMS annual meeting, APS cluster, 2024.</font></h3>
+                <h3><font color=#000000>Breakout session leader at 3rd Women in Machine Learning Un-Workshop, ICML 2022.</font></h3>
+                
+        
+
+            </section>
+
+            <section class="fancy-section">
+                <h2 class="section-heading">Reviewing</h2>
+                
+                <h3><font color=#000000>Session Chair for the strategic and distributionally robust sequential decision making session
+                    at the INFORMS annual meeting, APS cluster, 2024.</font></h3>
+                <h3><font color=#000000>Breakout session leader at 3rd Women in Machine Learning Un-Workshop, ICML 2022.</font></h3>
+                <h3><font color=#000000><strong>Journal review:</strong> The Journal of Machine Learning Research, the IEEE Transactions on Information Theory, the IEEE Transactions on Signal Processing, Foundations of Computational Mathematics, Operations Research, Mathematics of Operations Research, the IEEE Transactions on Pattern Analysis and Machine Intelligence.</font></h3>
+                <h3><font color=#000000><strong>Conference review:</strong> ICLR (2022-2023), ICASSP (2022-2023), ICML (2020-2024), CHIL (2022), NeurIPS (2021-
+                    2022,2024), ISIT (2022), ECML(2023), ICRA(2023)</font></h3>
+                <h3><font color=#000000><strong>Workshop review:</strong> IEEE Statistical Signal Processing Workshop (SSP 2021), Women in Machine Learning (2019),
+                    Women in Data Science and Mathematics (WiSDM 2023).</font></h3>
+        
+
+            </section>
+
+        
+            
+            </div>
+        
+
+        
+    </div> <!-- /#page-content-wrapper -->
+
+    
+
+    
+    <!-- </div> -->
+
+   
+    <hr>
+</body>
+</html>
