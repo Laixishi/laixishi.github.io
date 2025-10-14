@@ -1,0 +1,104 @@
+<style>
+  :root {
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --accent: #0ea5e9;        /* Hopkins-like blue accent */
+    --accent-dark: #0369a1;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --muted: #6b7280;
+  }
+
+  .bio-card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow:
+      0 8px 20px rgba(17, 24, 39, 0.08),
+      0 2px 6px rgba(17, 24, 39, 0.06);
+    overflow: hidden;
+  }
+
+  .bio-card__bar {
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent), #60a5fa, #22d3ee);
+  }
+
+  .bio-card__header {
+    background: linear-gradient(180deg, rgba(14,165,233,0.08), rgba(14,165,233,0.02));
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .bio-card__name {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.3;
+    color: var(--text-primary);
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+  .bio-card__roles {
+    margin: 6px 0 0 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .bio-card__roles .role-line {
+    display: block;
+  }
+
+  .bio-card__body {
+    padding: 18px 22px 20px 22px;
+  }
+  .bio-card__intro {
+    margin: 0 0 12px 0;
+    color: var(--text-primary);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+  .bio-card__text {
+    margin: 0 0 10px 0;
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+
+  .bio-card__list {
+    margin: 10px 0 0 0;
+    padding-left: 1.1rem;
+  }
+  .bio-card__list li {
+    margin: 6px 0;
+    color: var(--text-secondary);
+  }
+
+  .bio-card a {
+    color: var(--accent-dark);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(3,105,161,0.25);
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+  .bio-card a:hover {
+    color: var(--accent);
+    border-color: rgba(14,165,233,0.45);
+    background: rgba(14,165,233,0.08);
+  }
+
+  .bio-card::after {
+    content: "";
+    position: absolute;
+    right: -24px;
+    top: -24px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(closest-side, rgba(14,165,233,0.16), transparent 70%);
+    transform: rotate(35deg);
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .bio-card__name { font-size: 1.4rem; }
+    .bio-card__body { padding: 16px 18px; }
+  }
+</style>
