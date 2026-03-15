@@ -3,11 +3,16 @@
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="icon" href="./laixi_photo/experience/cmu_logo.jpeg" >
     <meta name="description" content="Personal website of Laixi Shi">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Bootstrap core CSS -->
     <link href="./files/bootstrap.min.css" rel="stylesheet">
     <!-- <link href="./files/button_style.css" rel="stylesheet"> -->
     <style>
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
         body {
             margin: 0;
             padding: 0;
@@ -181,7 +186,31 @@
             word-wrap: break-word; /* Break long words to prevent overflow */
         }
 
-
+        .main-content {
+            display: block;
+            margin-left: 13%;
+            margin-right: 2%;
+            padding: 1rem 1.5rem 2rem;
+            box-sizing: border-box;
+        }
+        @media (max-width: 991px) {
+            .main-content {
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                padding-top: 0.75rem;
+            }
+            .sidebar {
+                width: 140px;
+                padding: 12px 8px;
+            }
+            .sidebar h2 { font-size: 1rem; }
+            .sidebar ul li a { font-size: 0.9rem; }
+        }
+        @media (max-width: 767px) {
+            .main-content { padding: 0.75rem 1rem 1.5rem; }
+        }
 
     </style>
 </head>
@@ -254,13 +283,12 @@
             <hr>
             <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="publication.html">Publications</a></li>
                     <li><a href="awards.html">Awards</a></li>
                     <li><a href="projects.html">Projects</a></li>
                 </ul>
         </div>
 
-        <div class="container-fluid" style="display:block;margin-left:13%;margin-right:5%;">
+        <div class="container-fluid main-content">
             <!-- Heading -->
             <!-- Awards -->
             <div class="row">
