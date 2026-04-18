@@ -22,7 +22,6 @@
             background-color: #FFFFFF;
             color: #000000;
         }
-
         .container {
             width: 100%; /* or any percentage you prefer */
             margin: 0 auto; /* Center align the container */
@@ -80,26 +79,105 @@
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-            gap: 0;
+            gap: 10px;
         }
         .quick-links-wrap .btn-sep {
             width: 1px;
-            height: 1.4em;
-            background: #999;
-            margin: 0 10px;
+            height: 28px;
+            background: linear-gradient(to bottom, transparent, #002D72 20%, #002D72 80%, transparent);
+            margin: 0 8px;
             flex-shrink: 0;
+            opacity: 0.45;
         }
-        .quick-links-wrap .gs-link {
-            display: inline-block;
-            line-height: 0;
-            text-decoration: none;
-            margin-right: 14px;
+        .pill-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            background: #ffffff;
+            color: #002D72 !important;
+            font-family: 'Helvetica', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none !important;
+            border-radius: 999px;
+            border: 1.5px solid #002D72;
+            box-shadow: 0 2px 6px rgba(0, 45, 114, 0.08);
+            transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
+            cursor: pointer;
+            line-height: 1;
+            white-space: nowrap;
         }
-        .quick-links-wrap .gs-icon {
-            height: 1.35em;
-            width: auto;
-            vertical-align: middle;
+        .pill-link:hover,
+        .pill-link:focus {
+            background: #002D72;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 45, 114, 0.28);
+            text-decoration: none !important;
+        }
+        .pill-link.icon-only {
+            padding: 3px 9px;
+            gap: 0;
+        }
+        .pill-link .pill-icon-img {
+            height: 26px;
+            width: 26px;
             display: inline-block;
+            transition: filter .25s ease;
+        }
+        .pill-link:hover .pill-icon-img {
+            filter: brightness(0) invert(1);
+        }
+        .pill-link .pill-icon-svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* Scrollable news / events feed */
+        .feed-box {
+            max-height: 360px;
+            overflow-y: auto;
+            padding: 6px 14px 6px 2px;
+            border: 1px solid #e6e6e6;
+            border-radius: 10px;
+            background: linear-gradient(180deg, #ffffff 0%, #fafbfd 100%);
+            box-shadow: inset 0 -10px 14px -12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 18px;
+        }
+        .feed-box p {
+            margin: 0 0 10px 8px;
+            padding-bottom: 2px;
+            font-size: 16px;
+            line-height: 1.55;
+        }
+        .feed-box p:last-child {
+            margin-bottom: 0;
+        }
+        /* Custom scrollbar */
+        .feed-box::-webkit-scrollbar {
+            width: 8px;
+        }
+        .feed-box::-webkit-scrollbar-track {
+            background: #f3f4f7;
+            border-radius: 8px;
+        }
+        .feed-box::-webkit-scrollbar-thumb {
+            background: #CD5C5C;
+            border-radius: 8px;
+            opacity: 0.7;
+        }
+        .feed-box::-webkit-scrollbar-thumb:hover {
+            background: #B04848;
+        }
+        .feed-box {
+            scrollbar-color: #CD5C5C #f3f4f7;
+            scrollbar-width: thin;
         }
 
         ul.a {
@@ -444,10 +522,18 @@
                     <h5 style="color:#000000;padding-top:0;margin-bottom:0;text-align:left">Johns Hopkins Electrical and Computer Engineering</h5>
                     <h5 style="color:#000000;padding-top:0;margin-bottom:0.75rem;text-align:left">Johns Hopkins Data Science and AI Institute</h5>
                     <div class="quick-links-wrap">
-                        <a href="https://scholar.google.com/citations?user=V8RkRr8AAAAJ&hl=en" target="_blank" title="Google Scholar" class="gs-link"><img src="https://scholar.google.com/favicon.ico" alt="Google Scholar" class="gs-icon"></a>
-                        <button class="ex1" onclick="window.location.href='./laixi_photo/summary/resume.pdf';" target="_blank" style="color:#000000;font-size:20px">CV</button>
-                        <span class="btn-sep"></span>
-                        <button class="ex1" onclick="window.location.href='https://roomy-oil-412.notion.site/Wonderful-young-researcher-workshops-5885e27909b8468392f9485813f902ab';" target="_blank" style="color:#000000;font-size:20px">List of Rising Star Workshops</button>
+                        <a href="https://scholar.google.com/citations?user=V8RkRr8AAAAJ&hl=en" target="_blank" title="Google Scholar" class="pill-link icon-only">
+                            <img src="https://scholar.google.com/favicon.ico" alt="Google Scholar" class="pill-icon-img">
+                        </a>
+                        <a href="./laixi_photo/summary/resume.pdf" target="_blank" class="pill-link">
+                            <svg class="pill-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                            CV
+                        </a>
+                        <span class="btn-sep" aria-hidden="true"></span>
+                        <a href="https://roomy-oil-412.notion.site/Wonderful-young-researcher-workshops-5885e27909b8468392f9485813f902ab" target="_blank" class="pill-link">
+                            <svg class="pill-icon-svg" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15 8.5 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 9 8.5 12 2"/></svg>
+                            List of Rising Star Workshops
+                        </a>
                     </div>
                     <!-- <h2 style="color:#000000;padding-top:0px;margin-bottom:30px;text-align:left"><strong>Johns Hopkins University</strong></h2> -->                   
                     <pr>
@@ -510,52 +596,42 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h3 class="page-header" id="news"><font color=#CD5C5C><div style="line-height:15px"><strong>News</strong></div></font></h3>
-                
 
+                <div class="feed-box">
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/9/27]</strong>  One paper got accepted by NeurIPS 2025. Thanks to my wonderful collaborators.</font></p>
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/1/22]</strong>  <a href ="https://arxiv.org/abs/2411.03810" target = "_blank">Hybrid transfer RL</a> got AISTATS oral, 2025. Thanks to my wonderful collaborators.</font></p>
-
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/1/22]</strong> <a href ="https://arxiv.org/abs/2406.14156" target = "_blank">Tractable risk-sensitive games</a> got ICLR Oral and <a href ="https://github.com/SafeRL-Lab/Robust-Gymnasium" target = "_blank">Robust Gymnasium</a> got ICLR poster, 2025. Thanks to my wonderful collaborators.</font></p>
-
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/9/25]</strong> Three papers got accepted by NeurIPS 2024. Thanks to my wonderful collaborators.</font></p>
-
-                <!-- <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/7/12]</strong> One paper got accepted by JMLR.</font></p> -->
-
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/7/12]</strong> One paper got accepted by JMLR.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/5/14]</strong> Two papers got accepted by RLC 2024. Thanks to my wonderful collaborators.</font></p>
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/5/10]</strong> My thesis won the CMU ECE A.G. Milnes Award, which is awarded to a graduating ECE PhD student for the PhD thesis work judged to be of the highest quality and which has had or is likely to have significant impact in his or her field. Credits to Prof. Yuejie Chi and all collaborators!</font></p>
-
-                <!-- <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/5/13-17]</strong> Congrats to my friend <a href="https://doublehan07.github.io/" target="_blank">Han Zhang</a> for presenting <a href="https://steven-xzr.github.io/ArrayBot/" target="_blank">ArrayBot</a> and <a href="https://linchangyi1.github.io/9DTact/" target="_blank">9DTact</a> at ICRA 2024!</font></p> -->
-
-               <!--  <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/5/14]</strong> Two papers got accepted by RLC 2024. Thanks to my wonderful collaborators.</font></p>
-
-               
-
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/5/1]</strong> Two papers got accepted by ICML 2024. Thanks to my wonderful collaborators.</font></p> -->
-
-                <!-- <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/10/17]</strong> A new <a href ="https://sites.google.com/view/causaldro" target="_blank">website</a> about <a href ="https://arxiv.org/abs/2307.07907" target="_blank">practical robust RL</a> has been released.</font></p>
-                
-
-
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/9/21]</strong> Two papers got accepted by NeurIPS 2023. Thanks for all wonderful collaborators. See you on Dec. 10-16.</font></p>  -->
-
-              <!--   <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/08]</strong> Call for Papers at <a href = "https://cpal.cc/subject_areas/" target = "_blank">Conference on Parsimony and Learning (CPAL)!!!</a> (serve as an Area Chair).</font></p> 
-
-
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/08/21]</strong> Computing, Data, and Society Postdoctoral Fellow at Caltech.</font></p>  -->
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/5/1]</strong> Two papers got accepted by ICML 2024. Thanks to my wonderful collaborators.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/10/17]</strong> A new <a href ="https://sites.google.com/view/causaldro" target="_blank">website</a> about <a href ="https://arxiv.org/abs/2307.07907" target="_blank">practical robust RL</a> has been released.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/9/21]</strong> Two papers got accepted by NeurIPS 2023. Thanks for all wonderful collaborators.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/08/21]</strong> Computing, Data, and Society Postdoctoral Fellow at Caltech.</font></p>
+                </div>
 
                 </div>
 
                 <div class="col-lg-6">
-                        <h3 class="page-header" id="news"><font color=#CD5C5C><div style="line-height:15px"><strong>Recent/Upcoming Events</strong></div></font></h3>
-                
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/09/08]</strong> Invited Speaker at John Hopkins Biostat Seminar Series.</font></p> 
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/07/14-24]</strong> Attend ICML 2025 and ICCOPT 2025.</font></p> 
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/04/04]</strong> Invited Speaker at Michigan RL Seminar series.</font></p> 
-                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/11/01]</strong> Invited speaker at <a href="https://csc.usc.edu/socal/2024Fall/index.html" target = "_blank">the 44th Southern California Control Workshop</a> at USC.</font></p>
+                        <h3 class="page-header" id="events"><font color=#CD5C5C><div style="line-height:15px"><strong>Recent/Upcoming Events</strong></div></font></h3>
 
+                <div class="feed-box">
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/09/08]</strong> Invited Speaker at John Hopkins Biostat Seminar Series.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/07/14-24]</strong> Attend ICML 2025 and ICCOPT 2025.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2025/04/04]</strong> Invited Speaker at Michigan RL Seminar series.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/11/01]</strong> Invited speaker at <a href="https://csc.usc.edu/socal/2024Fall/index.html" target = "_blank">the 44th Southern California Control Workshop</a> at USC.</font></p>
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/10/27-30]</strong> Invited Speaker at the Asilomar Conference on Signals, Systems, and Computers.</font></p>
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/10/24-25]</strong> EECS Rising Stars Workshop at MIT.</font></p>
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/10/20-23]</strong> Session Chair at 2024 INFORMS Annual Meeting.</font></p>
                 <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/10/9-11]</strong> Invited to The 2024 Young Researchers Workshop at Cornell.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/06/10-14]</strong> <a href ="https://www.caltech.edu/campus-life-events/calendar/ai-bootcamp-v-reinforcement-learning-3" target = "_blank">Instructor in Reinforcement Learning Bootcamp at Caltech</a>.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/04/19]</strong> <a href ="https://sites.gatech.edu/isye-junior-researcher-workshop/" target = "_blank">2024 ISyE Junior Researcher Workshop in Georgia Tech</a>.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/02/18-23]</strong> <a href ="https://ita.ucsd.edu/" target = "_blank">2024 Information Theory and Applications Workshop</a>.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/11/14-15]</strong> <a href ="https://ml.umd.edu/rising-stars" target = "_blank">Rising Stars In Machine Learning, University of Maryland</a>.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/11/08]</strong> Invited speaker at <a href ="https://sites.duke.edu/words2023/" target = "_blank">WORDS 2023: Workshop in Operations Research and Data Science</a>, Duke University.</font></p>
+                <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2023/10/26]</strong> Invited speaker at <a href ="https://sites.google.com/view/saferl-seminar/home" target = "_blank">Safe Reinforcement Learning Online Seminar</a>.</font></p>
+                </div>
                 <!-- <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/06/10-14]</strong> <a href ="https://www.caltech.edu/campus-life-events/calendar/ai-bootcamp-v-reinforcement-learning-3" target = "_blank">Instructor in Reinforcement Learning Bootcamp at Caltech!</a>.</font></p>  -->
                 <!-- <p><font color=#000000><strong><img src="./files/news2.jpeg" style="height: 25px; margin-right:5px">[2024/04/19]</strong> <a href ="https://sites.gatech.edu/isye-junior-researcher-workshop/" target = "_blank">2024 ISyE Junior Researcher Workshop in Georgia Tech</a>.</font></p>  -->
 

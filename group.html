@@ -248,6 +248,114 @@
             margin-bottom: 40px;
         }
 
+        /* Group member card grid */
+        .group-section {
+            margin-top: 52px;
+            padding-top: 34px;
+            border-top: 1px solid #d9dee6;
+            position: relative;
+        }
+        .group-section:first-of-type {
+            margin-top: 20px;
+            padding-top: 0;
+            border-top: none;
+        }
+        .group-section::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            width: 72px;
+            height: 3px;
+            background: linear-gradient(90deg, #CD5C5C, #E9A0A0);
+            border-radius: 2px;
+        }
+        .group-section:first-of-type::before {
+            display: none;
+        }
+        .group-subheading {
+            font-size: 22px;
+            font-weight: 700;
+            color: #CD5C5C;
+            margin: 0 0 18px;
+            letter-spacing: 0.3px;
+            border-left: 4px solid #CD5C5C;
+            padding-left: 12px;
+        }
+        .member-list {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+        .member-row {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 10px 6px;
+            border-bottom: 1px solid #eee;
+            transition: background-color .2s ease;
+        }
+        .member-row:last-child {
+            border-bottom: none;
+        }
+        .member-row:hover {
+            background-color: rgba(0, 45, 114, 0.03);
+        }
+        .member-photo {
+            width: 140px;
+            height: 140px;
+            flex: 0 0 140px;
+            object-fit: cover;
+            border-radius: 6px;
+            background: #eef2f9;
+            transition: transform .25s ease;
+        }
+        .member-row:hover .member-photo {
+            transform: scale(1.02);
+        }
+        .member-info {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+        .member-name {
+            font-family: 'Helvetica', sans-serif;
+            font-size: 19px;
+            font-weight: 700;
+            color: #002D72 !important;
+            text-decoration: none !important;
+            line-height: 1.25;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+        a.member-name:hover {
+            color: #68ACE5 !important;
+            text-decoration: none !important;
+        }
+        .member-role {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.5;
+        }
+        .member-meta {
+            font-size: 14.5px;
+            color: #666;
+            line-height: 1.5;
+            margin-top: 2px;
+        }
+        @media (max-width: 520px) {
+            .member-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .member-photo {
+                width: 120px;
+                height: 120px;
+                flex-basis: 120px;
+            }
+        }
+
         .section-heading {
             font-size: 24px;
             color: #333333;
@@ -376,34 +484,65 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h5 style="line-height:25px;color: #000000"><strong>Current Members</strong></h5>
+                    <div class="group-section">
+                        <h5 class="group-subheading">Current Members</h5>
+                        <div class="member-list">
+                            <div class="member-row">
+                                <img class="member-photo" src="./laixi_photo/summary/profile5.JPEG" alt="Laixi Shi" onerror="this.src='./laixi_photo/group/placeholder.svg'">
+                                <div class="member-info">
+                                    <div class="member-name">Laixi Shi</div>
+                                    <div class="member-role">Principal Investigator</div>
+                                </div>
+                            </div>
+                            <div class="member-row">
+                                <img class="member-photo" src="./laixi_photo/group/juyang-bai.png" alt="Juyang Bai" onerror="this.src='./laixi_photo/group/placeholder.svg'">
+                                <div class="member-info">
+                                    <a class="member-name" href="https://juyangbai.github.io/" target="_blank" rel="noopener">Juyang Bai</a>
+                                    <div class="member-role">Ph.D. Student (starting 2026)</div>
+                                </div>
+                            </div>
+                            <div class="member-row">
+                                <img class="member-photo" src="./laixi_photo/group/yashaswini-murthy.jpg" alt="Yashaswini Murthy" onerror="this.src='./laixi_photo/group/placeholder.svg'">
+                                <div class="member-info">
+                                    <a class="member-name" href="https://yashaswinimurthy.web.illinois.edu/home.html" target="_blank" rel="noopener">Yashaswini Murthy</a>
+                                    <div class="member-role">Postdoc (2025–2026, co-advised with Prof. Adam Wierman)</div>
+                                    <div class="member-meta">Will join UT Austin in Fall 2026</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <ul class="a">
-                        <li style="line-height:25px;color: #000000">Laixi Shi, the Principal Investigator</li>
-                        <li style="line-height:25px;color: #000000"><a href="https://juyangbai.github.io/" target="_blank">Juyang Bai</a> (Ph.D. starting 2026)</li>
-                        <li style="line-height:25px;color: #000000"><a href="https://yashaswinimurthy.web.illinois.edu/home.html" target="_blank">Yashaswini Murthy</a>, Postdoc 2025-2026 (co-advised with Prof. Adam Wierman, will join UT Austin in Fall 2026.)</li>
-                    </ul>
+                    <div class="group-section">
+                        <h5 class="group-subheading">Current Collaborators</h5>
+                        <div class="member-list">
+                            <div class="member-row">
+                                <img class="member-photo" src="./laixi_photo/group/chengrui-qu.png" alt="Chengrui Qu" onerror="this.src='./laixi_photo/group/placeholder.svg'">
+                                <div class="member-info">
+                                    <a class="member-name" href="https://crqu.github.io/" target="_blank" rel="noopener">Chengrui Qu</a>
+                                    <div class="member-role">Ph.D. Student at Caltech</div>
+                                </div>
+                            </div>
+                            <div class="member-row">
+                                <img class="member-photo" src="./laixi_photo/group/shangding-gu.png" alt="Shangding Gu" onerror="this.src='./laixi_photo/group/placeholder.svg'">
+                                <div class="member-info">
+                                    <a class="member-name" href="https://people.eecs.berkeley.edu/~shangding.gu/index.html" target="_blank" rel="noopener">Shangding Gu</a>
+                                    <div class="member-role">Postdoc at UC Berkeley</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                    <h5 style="line-height:25px;color: #000000"><strong>Current Collaborators</strong></h5>
-                    <ul class="a">
-                        <!-- <li style="line-height:25px;color: #000000">Deepak Manda (Ph.D. at JHU)</li> -->
-                        <!-- <li style="line-height:25px;color: #000000">Ruijia Zhang (Ph.D. at JHU AMS)</li> -->
-                        <li style="line-height:25px;color: #000000"><a href="https://scholar.google.com/citations?user=uEU2WWMAAAAJ&hl=en&oi=ao" target="_blank">Lakshmideepakreddy Manda</a> (Ph.D. at JHU ECE)</li>
-                        <li style="line-height:25px;color: #000000"><a href="https://crqu.github.io/" target="_blank">Chengrui Qu</a> (Ph.D. at Caltech)</li>
-                        <!-- <li style="line-height:25px;color: #000000">Jingchu Gai (Ph.D. at CMU)</li> -->
-                        <li style="line-height:25px;color: #000000"><a href="https://people.eecs.berkeley.edu/~shangding.gu/index.html" target="_blank">Shangding Gu</a> (Postdoc. at UC Berkeley)</li>
-                    </ul>
-                    
-                    <h5 style="line-height:25px;color: #000000"><strong>Previous Mentees</strong></h5>
-                    <ul class="a">
-                        <!-- <li style="line-height:25px;color: #000000">Deepak Manda (Ph.D. at JHU)</li> -->
+                    <div class="group-section">
+                        <h5 class="group-subheading">Previous Mentees</h5>
+                        <ul class="a">
                         <li style="line-height:25px;color: #000000"><a href="https://drive.google.com/file/d/1b9bls2xs9UAUkl_IWe7Z-V0QVQH7R5cT/view?usp=sharing" target="_blank">Jingchu Gai</a> (undergraduate student at Peking University -> Ph.D. at CMU Machine Learning Department), 2024-Present</li>
                         <li style="line-height:25px;color: #000000"><a href="https://luchenbei.com/" target="_blank">Chenbei Lu</a> (Ph.D. student at Tsinghua University -> Postdoc at Cornell University), 2023-2025</li>
                         <li style="line-height:25px;color: #000000">Zhengfei Zhang (undergraduate student at Tsinghua University -> Startup founder), 2023-2024</li>
                         <li style="line-height:25px;color: #000000"><a href="https://yiqiwang8177.github.io/" target = "_blank">Yiqi Wang</a> (master student at CMU ECE-> master in Robotics Institute at CMU), 2022-2024</li>
                         <li style="line-height:25px;color: #000000">Gore Kao (master student -> Tiktok), 2022-2023</li>
                         <li style="line-height:25px;color: #000000"><a href="https://yuchenlwu.github.io/" target = "_blank">Yuchen Wu</a> (master student at CMU ECE-> Ph.D. student at University of Washington), 2021-2022</li>
-                    </ul>
+                        </ul>
+                    </div>
 
                 </div>
             </div>
