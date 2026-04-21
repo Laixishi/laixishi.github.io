@@ -185,8 +185,9 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 64px;
-            margin-top: 16px;
+            justify-content: flex-start;
+            gap: 70px;
+            margin-top: 14px;
             margin-bottom: 30px;
         }
         .sponsor-item {
@@ -195,9 +196,8 @@
             align-items: center;
             flex-wrap: nowrap;
             justify-content: flex-start;
-            gap: 14px;
-            width: 420px;
-            height: 72px;
+            gap: 10px;
+            height: 52px;
             text-decoration: none !important;
             transition: opacity .2s ease, transform .2s ease;
         }
@@ -207,23 +207,31 @@
             text-decoration: none !important;
         }
         .sponsor-item img {
-            height: 56px;
+            height: 40px;
             width: auto;
             max-width: 100%;
-            max-height: 56px;
+            max-height: 40px;
             object-fit: contain;
             flex-shrink: 0;
             display: block;
         }
         .sponsor-item .sponsor-logo-dark {
-            max-width: 170px;
+            max-width: 125px;
         }
-        /* MERL horizontal logo fills most of the tile since it has no separate label */
+        .sponsor-sep {
+            height: 28px !important;
+        }
+        .sponsor-label {
+            font-size: 0.85rem !important;
+        }
+        /* Solo (no separator/label) tiles — full horizontal logo fills the tile */
+        .sponsor-item.sponsor-solo {
+            justify-content: center;
+        }
         .sponsor-item.sponsor-solo img {
             max-width: 100%;
-            max-height: 64px;
-            height: 64px;
-            margin: 0 auto;
+            max-height: 46px;
+            height: 46px;
         }
         /* Recolor white JHU SVG to heritage blue via CSS filter */
         .sponsor-logo-dark {
@@ -971,7 +979,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h3 class="page-header" id="funding"><font color=#CD5C5C><div style="line-height:15px"><strong>Research Support</strong></div></font></h3>
-                    <p style="line-height:25px;color:#000000;margin-top:10px;">We gratefully acknowledge the support from MERL and JHU DSAI.</p>
+                    <p style="line-height:25px;color:#000000;margin-top:10px;">We gratefully acknowledge the support from JHU DSAI, MERL, and NSF IMSI.</p>
                     <div class="funding-grid">
                         <a class="sponsor-item" href="https://ai.jhu.edu/" target="_blank" rel="noopener">
                             <img class="sponsor-logo-dark" src="./laixi_photo/funding/JHU.logo_horizontal.white.svg" alt="Johns Hopkins University">
@@ -980,6 +988,9 @@
                         </a>
                         <a class="sponsor-item sponsor-solo" href="https://www.merl.com/" target="_blank" rel="noopener">
                             <img src="./laixi_photo/funding/merl.png" alt="Mitsubishi Electric Research Laboratories (MERL)">
+                        </a>
+                        <a class="sponsor-item sponsor-solo" href="https://www.imsi.institute/about/nsf-support/" target="_blank" rel="noopener">
+                            <img src="./laixi_photo/funding/nsf-imsi.png" alt="NSF IMSI — Institute for Mathematical and Statistical Innovation">
                         </a>
                     </div>
                 </div>
