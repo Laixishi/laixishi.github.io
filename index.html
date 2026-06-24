@@ -471,7 +471,42 @@
             .sidebar { display: none !important; }
             .main-content { margin-left: 0 !important; padding-top: 0.5rem; }
             .mobile-nav { display: flex !important; }
+            /* Fix heading flex overflow */
+            #research-interest { flex-wrap: wrap !important; font-size: 1.25rem !important; }
+            /* Publication column tabs */
+            .pub-tabs { display: flex !important; }
+            #publications > .col-lg-6 {
+                border-right: none !important;
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+                width: 100% !important;
+            }
+            #publications > .col-lg-6.pub-col-hidden { display: none !important; }
         }
+        /* Mobile tab switcher (hidden on desktop) */
+        .pub-tabs {
+            display: none;
+            gap: 0;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+        }
+        .pub-tab-btn {
+            flex: 1;
+            padding: 12px 8px;
+            border: none;
+            background: #f0f4f8;
+            color: #444;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            font-family: 'Lora', Georgia, serif;
+            transition: background .2s, color .2s;
+        }
+        .pub-tab-btn:first-child { border-right: 2px solid #fff; }
+        .pub-tab-btn.tab-active-f { background: #002D72; color: #fff; }
+        .pub-tab-btn.tab-active-a { background: #8B2020; color: #fff; }
 
         /* for image container */
         .image-container {
@@ -987,6 +1022,11 @@
                     </div>
                 </div>
             </div>
+            <!-- Mobile-only Foundation / Applications tab switcher -->
+            <div class="pub-tabs">
+                <button class="pub-tab-btn tab-active-f" id="pubTabF">&#128218; Foundation</button>
+                <button class="pub-tab-btn" id="pubTabA">&#128301; Applications</button>
+            </div>
             <div class="row" id="publications">
                 <div class="col-lg-6" style="padding-right:24px;border-right:1px solid #e8eaf0">
                 <h4 style="color:#002D72;font-weight:800;background:#ddeaf8;border-left:5px solid #002D72;padding:10px 18px;border-radius:0 8px 8px 0;margin-bottom:20px;font-family:'Lora',Georgia,serif;font-size:22px">Foundation</h4>
@@ -1366,6 +1406,26 @@
 
     <hr>
 <script>
+// Mobile Foundation / Applications tab switcher
+(function () {
+    var tabF = document.getElementById('pubTabF');
+    var tabA = document.getElementById('pubTabA');
+    if (!tabF || !tabA) return;
+    var cols = Array.from(document.querySelectorAll('#publications > .col-lg-6'));
+    function showTab(which) {
+        cols[0].classList.toggle('pub-col-hidden', which !== 'f');
+        cols[1].classList.toggle('pub-col-hidden', which !== 'a');
+        tabF.classList.toggle('tab-active-f', which === 'f');
+        tabF.classList.toggle('tab-active-a', false);
+        tabA.classList.toggle('tab-active-a', which === 'a');
+        tabA.classList.toggle('tab-active-f', false);
+    }
+    tabF.addEventListener('click', function () { showTab('f'); });
+    tabA.addEventListener('click', function () { showTab('a'); });
+    // On mobile, hide Applications column by default
+    if (window.innerWidth <= 640) { showTab('f'); }
+})();
+
 // Hamburger menu toggle
 (function () {
     var btn = document.getElementById('mobileMenuBtn');
