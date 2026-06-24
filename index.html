@@ -508,9 +508,9 @@
         .ri-umbrella {
             text-align: center;
             padding: 16px 24px 14px;
-            background: linear-gradient(135deg, #002D72 0%, #1a4fa0 100%);
+            background: linear-gradient(135deg, #3a2068 0%, #5c3a9a 100%);
             border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0,45,114,0.18);
+            box-shadow: 0 4px 18px rgba(58,32,104,0.22);
             margin-bottom: 18px;
         }
         .ri-main-topic {
@@ -640,6 +640,65 @@
         .ri-card-foundation .ri-paper-venue { background: #002D72; }
         .ri-card-apps .ri-paper-venue       { background: #b84040; }
 
+        /* ── Publication card hover + scroll-reveal ── */
+        .pub-row {
+            background: #fff;
+            border: 1.5px solid #e6edf8;
+            border-radius: 14px;
+            padding: 16px 18px 14px;
+            margin-bottom: 16px;
+            box-shadow: 0 3px 16px rgba(0,45,114,0.06);
+            transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .pub-row:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 42px rgba(0,45,114,0.15);
+            border-color: #b4caf0;
+        }
+        #publications .col-lg-6:first-of-type .pub-row {
+            border-left: 5px solid rgba(0,45,114,0.25);
+        }
+        #publications .col-lg-6:first-of-type .pub-row:hover {
+            background: #edf3fc;
+            border-left-color: #002D72;
+        }
+        #publications .col-lg-6:last-of-type .pub-row {
+            border-left: 5px solid rgba(139,32,32,0.25);
+        }
+        #publications .col-lg-6:last-of-type .pub-row:hover {
+            background: #fceaea;
+            border-left-color: #8B2020;
+        }
+        .pub-row .image-container {
+            border-radius: 8px;
+            border-color: #dce8f5;
+            overflow: hidden;
+        }
+        .pub-row .image-container img {
+            transition: transform .4s cubic-bezier(.25,.8,.25,1);
+        }
+        .pub-row:hover .image-container img {
+            transform: scale(1.06);
+        }
+        @media (prefers-reduced-motion: no-preference) {
+            .pub-reveal {
+                opacity: 0;
+                transform: translateY(22px);
+                transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+            }
+            .pub-reveal.pub-visible {
+                opacity: 1;
+                transform: none;
+            }
+        }
+        #publications .col-lg-6 > br { display: none; }
+        /* Sub-topic pill headers: at least as large as paper titles */
+        #publications .col-lg-6 > div[style*="margin"] > span {
+            font-size: 17px !important;
+            padding: 6px 16px !important;
+        }
 
     </style>
 </head>
@@ -781,8 +840,10 @@
 
                     <p style="line-height:25px;color: #000000">My current research focuses on human-centered decision making, especially robust and data-efficient reinforcement learning ranging from theory to applications, situated at the intersection of data science, optimization, and statistics. Prior to joining JHU, I received my Ph.D. from Carnegie Mellon University in 2023, advised by Prof. <a href="https://yuejiechi.github.io/" target="_blank">Yuejie Chi</a>. I was a postdoctoral fellow at Computing + Mathematical Sciences of California Institute of Technology, hosted by Prof. <a href="https://adamwierman.com/" target="_blank">Adam Wierman</a> and Prof. <a href="http://users.cms.caltech.edu/~mazumdar/" target="_blank">Eric Mazumdar</a>. I obtained my B.Eng. in Electronic Engineering from Tsinghua University.</p> 
 
-                    <p style="line-height:25px;color: #000000">I have been honored with five prestigious Rising Star awards across multiple disciplines: EECS Rising Stars by MIT, Signal Processing Rising Stars by IEEE ICASSP, Computational and Data Sciences Rising Stars by UT Austin, Machine Learning Rising Stars by the University of Maryland, and Data Science Rising Stars by the University of Chicago. My Ph.D. thesis received the CMU ECE A.G. Milnes Award (2024). During my undergraduate, I interned in Columbia University working with <a href="https://www.engineering.columbia.edu/faculty-staff/directory/xiaofan-fred-jiang" target="_blank">Prof. Xiaofan (Fred) Jiang</a> in 2017. I also interned at Mitsubishi Electric Research Laboratories (MERL) mentored by <a href="https://www.merl.com/people/liudh" target="_blank">Dehong Liu</a>, as well as Google Research (previous Brain Team) in Paris and Mountain View, working with <a href="https://psc-g.github.io/" target="_blank">Pablo Samuel Castro</a>, <a href="https://ddsh.github.io/" target="_blank">Robert Dadashi</a>, and <a href="https://scholar.google.com/citations?user=ectPLEUAAAAJ&hl=en" target="_blank">Matthieu Geist</a>.</p> 
-                    <p style="line-height:25px;color: #000000;background-color: rgba(224, 247, 250, 0.5); padding: 10px; border-radius: 10px;"> <b>Our group has openings for Ph.D. candidates and long-term interns.</b> I am always seeking self-motivated students excited about the exploration of important, interesting—even challenging—problems, with strong math and/or coding backgrounds for exploitation. If you’re interested in working with me, please email your resume/CV and a brief note on your research interests. I sincerely apologize if I’m unable to reply to everyone due to the high volume of messages, but please don’t hesitate to reach out if our interests truly align!</p>    
+                    <p style="line-height:25px;color: #000000">I have been honored with five Rising Star awards across multiple disciplines: EECS Rising Stars by MIT, Signal Processing Rising Stars by IEEE ICASSP, Computational and Data Sciences Rising Stars by UT Austin, Machine Learning Rising Stars by the University of Maryland, and Data Science Rising Stars by the University of Chicago. My Ph.D. thesis received the CMU ECE A.G. Milnes Award (2024). During my undergraduate, I interned in Columbia University working with <a href="https://www.engineering.columbia.edu/faculty-staff/directory/xiaofan-fred-jiang" target="_blank">Prof. Xiaofan (Fred) Jiang</a> in 2017. I also interned at Mitsubishi Electric Research Laboratories (MERL) mentored by <a href="https://www.merl.com/people/liudh" target="_blank">Dehong Liu</a>, as well as Google Research (previous Brain Team) in Paris and Mountain View, working with <a href="https://psc-g.github.io/" target="_blank">Pablo Samuel Castro</a>, <a href="https://ddsh.github.io/" target="_blank">Robert Dadashi</a>, and <a href="https://scholar.google.com/citations?user=ectPLEUAAAAJ&hl=en" target="_blank">Matthieu Geist</a>.</p> 
+                    <p style="line-height:25px;color: #000000;background-color: rgba(224, 247, 250, 0.5); padding: 10px; border-radius: 10px;"> <b>Our group has openings for Ph.D. candidates, postdocs, and long-term interns.</b> I am always seeking self-motivated students excited about the exploration of important, interesting—even challenging—problems, with strong math and/or coding backgrounds for exploitation. If you’re interested in working with me, please email your resume/CV and a brief note on your research interests. I sincerely apologize if I’m unable to reply to everyone due to the high volume of messages, but please don’t hesitate to reach out if our interests truly align!
+                    <br><br>
+                    <b>Postdoc openings</b> are primarily through the <a href="https://ai.jhu.edu/careers/postdoctoral-fellowship-program/" target="_blank">JHU DSAI Postdoctoral Fellowship Program</a> (deadline usually at the end of January). Please feel free to apply and mention my name as a potential advisor.</p>    
                     <!-- <h4 class="page-header" id="status"><font color=#000000><div style="line-height:25px"><strong>I am on the 2024-2025 job market looking for full-time academia and industry positions. Please feel free to reach out!</strong></div></font></h4> -->
                     <h3 style="color:#000000;padding-top:0px;margin-bottom:20px;text-align:left">Contact Information: laixis at jhu dot edu</h3>
                 </div>
@@ -854,20 +915,28 @@
             <div class="row" style="margin-top:20px">
                 <div class="col-lg-12">
                     <h3 class="page-header" id="research-interest" style="display:flex;align-items:center;gap:10px;"><font color=#CD5C5C><div style="line-height:15px"><strong>Research Interests &amp; Selected Publications</strong></div></font><a href="https://scholar.google.com/citations?user=V8RkRr8AAAAJ&hl=en" target="_blank" title="Google Scholar" class="pill-link icon-only" style="flex-shrink:0;margin-bottom:6px;"><svg class="pill-icon-svg" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" stroke="none" style="width:20px;height:20px;"><path d="M12 3L1 9l4 2.18V17l7 4 7-4v-5.82L23 9 12 3zm6 12.99l-6 3.44-6-3.44V13.2l6 3.27 6-3.27v2.79z"/></svg></a></h3>
-                    <div class="ri-umbrella" style="margin-bottom:16px">
-                        <span class="ri-main-topic">Decision Making for Human-Centered Agentic AI</span>
-                        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:10px;">
-                            <span style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.45);padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Reinforcement Learning</span>
-                            <span style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.45);padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Multi-Agent Systems</span>
-                            <span style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.45);padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Game Theory</span>
-                            <span style="background:rgba(255,255,255,0.18);color:#fff;border:1px solid rgba(255,255,255,0.45);padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Robustness</span>
+                    <div style="margin-bottom:20px">
+                        <!-- Gradient arrow bar: blue → red -->
+                        <div style="background:linear-gradient(to right,rgba(0,45,114,0.85) 0%,rgba(0,45,114,0.85) 42%,rgba(139,32,32,0.85) 58%,rgba(139,32,32,0.85) 100%);
+                                    clip-path:polygon(0 0,calc(100% - 32px) 0,100% 50%,calc(100% - 32px) 100%,0 100%);
+                                    padding:18px calc(32px + 22px) 18px 22px;
+                                    display:flex;align-items:center;justify-content:center;
+                                    box-shadow:0 4px 20px rgba(0,0,0,0.22);">
+                            <span style="font-size:21px;font-weight:800;color:#fff;letter-spacing:0.03em;font-family:'Lora',Georgia,serif;text-align:center;line-height:1.35;">Decision Making for Human-Centered Agentic AI</span>
+                        </div>
+                        <!-- Keyword chips below the bar -->
+                        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px;">
+                            <span style="background:#e4f2f2;color:#0b5c5c;border:1px solid #7ac4c4;padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Reinforcement Learning</span>
+                            <span style="background:#e4f2f2;color:#0b5c5c;border:1px solid #7ac4c4;padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Multi-Agent Systems</span>
+                            <span style="background:#e4f2f2;color:#0b5c5c;border:1px solid #7ac4c4;padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Game Theory</span>
+                            <span style="background:#e4f2f2;color:#0b5c5c;border:1px solid #7ac4c4;padding:4px 14px;border-radius:20px;font-size:13.5px;font-family:'Lora',Georgia,serif;font-weight:600;">Robustness</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row" id="publications">
                 <div class="col-lg-6" style="padding-right:24px;border-right:1px solid #e8eaf0">
-                <h4 style="color:#002D72;font-weight:800;border-top:4px solid #002D72;padding-top:10px;margin-bottom:20px;font-family:'Lora',Georgia,serif;font-size:20px">Foundation</h4>
+                <h4 style="color:#002D72;font-weight:800;background:#ddeaf8;border-left:5px solid #002D72;padding:10px 18px;border-radius:0 8px 8px 0;margin-bottom:20px;font-family:'Lora',Georgia,serif;font-size:22px">Foundation</h4>
                 <div style="margin:22px 0 10px 0;">
                     <span style="display:inline-block;color:#002D72;font-weight:700;font-family:'Lora',Georgia,serif;font-size:13.5px;letter-spacing:0.3px;padding:3px 12px;background:#eef2ff;border-radius:4px;border:1px solid #c5d0f0;">Robust &amp; multi-agent RL</span>
                 </div>
@@ -1064,7 +1133,7 @@
                 </div>
                 </div>
                 <div class="col-lg-6" style="padding-left:24px">
-                <h4 style="color:#8B2020;font-weight:800;border-top:4px solid #CD5C5C;padding-top:10px;margin-bottom:20px;font-family:'Lora',Georgia,serif;font-size:20px">Applications</h4>
+                <h4 style="color:#8B2020;font-weight:800;background:#f8dede;border-left:5px solid #CD5C5C;padding:10px 18px;border-radius:0 8px 8px 0;margin-bottom:20px;font-family:'Lora',Georgia,serif;font-size:22px">Applications</h4>
 
                 <div style="margin:0 0 10px 0;">
                     <span style="display:inline-block;color:#8B2020;font-weight:700;font-family:'Lora',Georgia,serif;font-size:13.5px;letter-spacing:0.3px;padding:3px 12px;background:#fff0f0;border-radius:4px;border:1px solid #e8b4b4;">LLM and multi-agent LLM systems</span>
@@ -1243,5 +1312,33 @@
     <!-- <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=v_dgrsld_5p0lrPDDf4ap-k0OjNswA_vha7bnLk5YyY"></script> -->
 
     <hr>
+<script>
+(function () {
+    // Tag paper rows in the publications section as hoverable cards + reveal targets
+    document.querySelectorAll('#publications .col-lg-6 > div.row').forEach(function (el) {
+        if (el.querySelector('.col-md-3')) {
+            el.classList.add('pub-row', 'pub-reveal');
+        }
+    });
+    // Sub-section header pill containers
+    document.querySelectorAll('#publications .col-lg-6 > div[style*="margin"]').forEach(function (el) {
+        el.classList.add('pub-reveal');
+    });
+    // Column headings (Foundation / Applications)
+    document.querySelectorAll('#publications .col-lg-6 > h4').forEach(function (el) {
+        el.classList.add('pub-reveal');
+    });
+    // IntersectionObserver for scroll-reveal
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('pub-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.pub-reveal').forEach(function (el) { observer.observe(el); });
+})();
+</script>
 </body>
 </html>
