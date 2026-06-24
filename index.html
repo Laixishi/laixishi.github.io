@@ -409,7 +409,7 @@
         }
         @media (max-width: 991px) {
             .main-content {
-                margin-left: 0;
+                margin-left: 145px; /* clear the 140px fixed sidebar */
                 margin-right: 0;
                 padding-left: 1.25rem;
                 padding-right: 1.25rem;
@@ -419,17 +419,58 @@
                 width: 140px;
                 padding: 12px 8px;
             }
-            .sidebar h2 {
-                font-size: 1rem;
-            }
-            .sidebar ul li a {
-                font-size: 0.9rem;
-            }
+            .sidebar h2 { font-size: 1rem; }
+            .sidebar ul li a { font-size: 0.9rem; }
         }
         @media (max-width: 767px) {
-            .main-content {
-                padding: 0.75rem 1rem 1.5rem;
-            }
+            .main-content { padding: 0.75rem 1rem 1.5rem; }
+        }
+        /* ── Mobile: hamburger nav ── */
+        .mobile-nav {
+            display: none;
+            background: #3C464F;
+            padding: 9px 16px;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1100;
+        }
+        .mobile-nav img { height: 22px; width: auto; }
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0 4px;
+        }
+        .mobile-menu-dropdown {
+            display: none;
+            position: fixed;
+            top: 42px;
+            left: 0; right: 0;
+            background: #3C464F;
+            z-index: 1099;
+            flex-direction: column;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.28);
+        }
+        .mobile-menu-dropdown.open { display: flex; }
+        .mobile-menu-dropdown a {
+            color: #fff !important;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none !important;
+            padding: 13px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .mobile-menu-dropdown a:last-child { border-bottom: none; }
+        .mobile-menu-dropdown a:hover { background: rgba(255,255,255,0.1); }
+        @media (max-width: 640px) {
+            .sidebar { display: none !important; }
+            .main-content { margin-left: 0 !important; padding-top: 0.5rem; }
+            .mobile-nav { display: flex !important; }
         }
 
         /* for image container */
@@ -781,6 +822,18 @@
                 </ul>
         </div>
 
+
+        <!-- Mobile-only hamburger nav (hidden on desktop via CSS) -->
+        <nav class="mobile-nav">
+            <img src="./laixi_photo/summary/JHU.logo_horizontal.white.png" alt="JHU">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">&#9776;</button>
+        </nav>
+        <div class="mobile-menu-dropdown" id="mobileMenuDropdown">
+            <a href="index.html">Home</a>
+            <a href="group.html">Group</a>
+            <a href="service.html">Teaching and Service</a>
+            <a href="awards.html">Awards</a>
+        </div>
 
         <div class="container-fluid main-content">
             <div class="profile-section">
@@ -1312,6 +1365,24 @@
     <!-- <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=v_dgrsld_5p0lrPDDf4ap-k0OjNswA_vha7bnLk5YyY"></script> -->
 
     <hr>
+<script>
+// Hamburger menu toggle
+(function () {
+    var btn = document.getElementById('mobileMenuBtn');
+    var menu = document.getElementById('mobileMenuDropdown');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+        var open = menu.classList.toggle('open');
+        btn.innerHTML = open ? '&#10005;' : '&#9776;';
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+            menu.classList.remove('open');
+            btn.innerHTML = '&#9776;';
+        });
+    });
+})();
+</script>
 <script>
 (function () {
     // Tag paper rows in the publications section as hoverable cards + reveal targets
